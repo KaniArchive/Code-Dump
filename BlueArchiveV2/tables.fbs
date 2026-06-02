@@ -1,0 +1,6 @@
+table GroundVector3 {
+	X: float; // index 0x0
+	Y: float; // index 0x1
+	Z: float; // index 0x2
+}
+
