@@ -377,7 +377,8 @@ enum ParcelType : int {
 	UnSelectedCharacter = 26,
 	ProductBattlePass = 27,
 	ProductSelect = 28,
-	SNSPost = 29
+	SNSPost = 29,
+	ProductDailyRecord = 30
 }
 
 enum StatType : int {
@@ -4936,7 +4937,8 @@ enum ItemCategory : int {
 	RecruitCoin = 7,
 	InvisibleToken = 8,
 	BattlePass = 9,
-	ProductSelect = 10
+	ProductSelect = 10,
+	ProductDailyRecord = 11
 }
 
 enum Difficulty : int {
@@ -5896,7 +5898,8 @@ enum GachaDisplayTag : int {
 	SelectRecruit = 7,
 	LimitedThreeStar = 8,
 	Revival = 9,
-	SelectLimited = 10
+	SelectLimited = 10,
+	NewbieDateLimited = 11
 }
 
 enum ShopPurchasePopupType : int {
