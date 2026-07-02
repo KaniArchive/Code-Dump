@@ -729,36 +729,38 @@ table CharacterExcel {
 	ExternalBTId: long; // index 0x21
 	MainCombatStyleId: long; // index 0x22
 	CombatStyleIndex: int; // index 0x23
-	ScenarioCharacter: string; // index 0x24
-	SpawnTemplateId: uint; // index 0x25
-	FavorLevelupType: int; // index 0x26
-	EquipmentSlot: [FlatData.EquipmentCategory]; // index 0x27
-	WeaponLocalizeId: uint; // index 0x28
-	DisplayEnemyInfo: bool; // index 0x29
-	BodyRadius: long; // index 0x2A
-	RandomEffectRadius: long; // index 0x2B
-	HPBarHide: bool; // index 0x2C
-	HpBarHeight: float; // index 0x2D
-	HighlightFloaterHeight: float; // index 0x2E
-	EmojiOffsetX: float; // index 0x2F
-	EmojiOffsetY: float; // index 0x30
-	MoveStartFrame: int; // index 0x31
-	MoveEndFrame: int; // index 0x32
-	JumpMotionFrame: int; // index 0x33
-	AppearFrame: int; // index 0x34
-	CanMove: bool; // index 0x35
-	CanFix: bool; // index 0x36
-	CanCrowdControl: bool; // index 0x37
-	CanBattleItemMove: bool; // index 0x38
-	IgnoreObstacle: bool; // index 0x39
-	IsAirUnit: bool; // index 0x3A
-	AirUnitHeight: long; // index 0x3B
-	Tags: [FlatData.Tag]; // index 0x3C
-	SecretStoneItemId: long; // index 0x3D
-	SecretStoneItemAmount: int; // index 0x3E
-	CharacterPieceItemId: long; // index 0x3F
-	CharacterPieceItemAmount: int; // index 0x40
-	CombineRecipeId: long; // index 0x41
+	UseRepStyleOnCharacterGrowth: bool; // index 0x24
+	ScenarioCharacter: string; // index 0x25
+	SpawnTemplateId: uint; // index 0x26
+	FavorLevelupType: int; // index 0x27
+	EquipmentSlot: [FlatData.EquipmentCategory]; // index 0x28
+	WeaponLocalizeId: uint; // index 0x29
+	DisplayEnemyInfo: bool; // index 0x2A
+	BodyRadius: long; // index 0x2B
+	RandomEffectRadius: long; // index 0x2C
+	TargetGuideScale: float; // index 0x2D
+	HPBarHide: bool; // index 0x2E
+	HpBarHeight: float; // index 0x2F
+	HighlightFloaterHeight: float; // index 0x30
+	EmojiOffsetX: float; // index 0x31
+	EmojiOffsetY: float; // index 0x32
+	MoveStartFrame: int; // index 0x33
+	MoveEndFrame: int; // index 0x34
+	JumpMotionFrame: int; // index 0x35
+	AppearFrame: int; // index 0x36
+	CanMove: bool; // index 0x37
+	CanFix: bool; // index 0x38
+	CanCrowdControl: bool; // index 0x39
+	CanBattleItemMove: bool; // index 0x3A
+	IgnoreObstacle: bool; // index 0x3B
+	IsAirUnit: bool; // index 0x3C
+	AirUnitHeight: long; // index 0x3D
+	Tags: [FlatData.Tag]; // index 0x3E
+	SecretStoneItemId: long; // index 0x3F
+	SecretStoneItemAmount: int; // index 0x40
+	CharacterPieceItemId: long; // index 0x41
+	CharacterPieceItemAmount: int; // index 0x42
+	CombineRecipeId: long; // index 0x43
 }
 
 table CharacterGearExcel {
@@ -3064,10 +3066,11 @@ table ItemExcel {
 	ShopCategory: [FlatData.ShopCategoryType]; // index 0x1D
 	ExpirationDateTime: string; // index 0x1E
 	ExpirationNotifyDateIn: int; // index 0x1F
-	ShortcutTypeId: long; // index 0x20
-	GachaTicket: FlatData.GachaTicketType; // index 0x21
-	AlertPopupId: long; // index 0x22
-	ShiftingCraftRecipe: long; // index 0x23
+	IsOverrideExpiration: bool; // index 0x20
+	ShortcutTypeId: long; // index 0x21
+	GachaTicket: FlatData.GachaTicketType; // index 0x22
+	AlertPopupId: long; // index 0x23
+	ShiftingCraftRecipe: long; // index 0x24
 }
 
 table KeyMappingExcel {
@@ -4891,12 +4894,14 @@ table ShopRecruitExcel {
 	PurchaseCooltimeMin: long; // index 0x12
 	PurchaseCountLimit: long; // index 0x13
 	PurchaseCountResetType: FlatData.PurchaseCountResetType; // index 0x14
-	IsNewbie: bool; // index 0x15
-	IsSelectRecruit: bool; // index 0x16
-	DirectPayInvisibleTokenId: long; // index 0x17
-	DirectPayProductId: string; // index 0x18
-	SelectAbleGachaGroupId: long; // index 0x19
-	MaxSelectCharacterNum: long; // index 0x1A
+	SalePeriodDayParameter: long; // index 0x15
+	IsOverrideSalePeriodTo: bool; // index 0x16
+	IsNewbie: bool; // index 0x17
+	IsSelectRecruit: bool; // index 0x18
+	DirectPayInvisibleTokenId: long; // index 0x19
+	DirectPayProductId: string; // index 0x1A
+	SelectAbleGachaGroupId: long; // index 0x1B
+	MaxSelectCharacterNum: long; // index 0x1C
 }
 
 table ShopRecruitSettingExcel {
@@ -5141,6 +5146,7 @@ table TerrainAdaptationFactorExcel {
 	AccuracyFactor: long; // index 0x5
 	DodgeFactor: long; // index 0x6
 	AttackPowerFactor: long; // index 0x7
+	TerrainFactorDescription: string; // index 0x8
 }
 
 table TimeAttackDungeonExcel {
