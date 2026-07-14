@@ -3090,6 +3090,7 @@ table KeyControllerImageExcel {
 	ControllerKeyCode: string; // index 0x1
 	PSIconName: string; // index 0x2
 	XBoxIconName: string; // index 0x3
+	SteamDeckIconName: string; // index 0x4
 }
 
 table KeyMappingDisplayInfoExcel {
