@@ -267,7 +267,8 @@ enum BattleCalculationStat : int {
 
 enum StatTransType : int {
 	SpecialTransStat = 0,
-	TSATransStat = 1
+	TSATransStat = 1,
+	SumSynergyBulletType = 2
 }
 
 enum BattleDialogType : int {
@@ -336,7 +337,8 @@ enum ContentType : int {
 	MultiFloorRaid = 21,
 	MinigameDefense = 22,
 	InteractiveWorldRaid = 23,
-	PermanentRaid = 24
+	PermanentRaid = 24,
+	TacticalRelay = 25
 }
 
 enum StageDifficulty : int {
@@ -378,7 +380,8 @@ enum ParcelType : int {
 	ProductBattlePass = 27,
 	ProductSelect = 28,
 	SNSPost = 29,
-	ProductDailyRecord = 30
+	ProductDailyRecord = 30,
+	StudentFrame = 31
 }
 
 enum StatType : int {
@@ -475,7 +478,15 @@ enum StatType : int {
 	EffectiveDamagedRatio = 90,
 	NormalDamagedRatio = 91,
 	ResistDamagedRatio = 92,
-	Max = 93
+	AddDamageRatioSynergyBulletType = 93,
+	AddStreetTerrainFactor = 94,
+	AddOutdoorTerrainFactor = 95,
+	AddIndoorTerrainFactor = 96,
+	EnhanceResistDamageRate = 97,
+	ReduceResistDamagedRate = 98,
+	AddSummonedObstacleDamagedRatio = 99,
+	DamagedRatio_Obstacle = 100,
+	Max = 101
 }
 
 enum Rarity : int {
@@ -563,7 +574,10 @@ enum MailType : int {
 	PaymentCenterMonthly = 32,
 	PaymentCenterBattlePass = 33,
 	PaymentCenterDailyRecord = 34,
-	ExpiryProductDailyRecordItem = 35
+	ExpiryProductDailyRecordItem = 35,
+	ExpiryStreakRecordItem = 36,
+	ExpirySeasonRecordItem = 37,
+	PaymentCenterStreakRecord = 38
 }
 
 enum StarGoalType : int {
@@ -572,7 +586,9 @@ enum StarGoalType : int {
 	Clear = 2,
 	GetBoxes = 3,
 	ClearTimeInSec = 4,
-	AllyBaseDamage = 5
+	AllyBaseDamage = 5,
+	UsedTurn = 6,
+	LeftHitPoint = 7
 }
 
 enum RewardTag : int {
@@ -598,7 +614,8 @@ enum RewardTag : int {
 	ConquestErosionPenalty = 19,
 	GemBonus = 20,
 	GemPaid = 21,
-	ConquestTileConquer = 22
+	ConquestTileConquer = 22,
+	Mileage = 23
 }
 
 enum FieldConditionType : int {
@@ -753,7 +770,10 @@ enum OpenConditionContent : int {
 	MiniGameCCG = 57,
 	Main_L_1_5 = 58,
 	Main_SNS = 59,
-	PermanentRaid = 60
+	PermanentRaid = 60,
+	MinigameJanken = 61,
+	TacticalRelay = 62,
+	Engrave = 63
 }
 
 enum RecipeType : int {
@@ -766,7 +786,8 @@ enum RecipeType : int {
 	SelectionItem = 6,
 	WeaponTranscendence = 7,
 	SelectRecruit = 8,
-	CharacterPotential = 9
+	CharacterPotential = 9,
+	EngraveOpen = 10
 }
 
 enum ScenarioBGType : int {
@@ -868,7 +889,9 @@ enum DialogCategory : int {
 	UIAttendanceEvent21 = 76,
 	UIEventClueSearch = 77,
 	UIWorkAronaWatering = 78,
-	UIWorkCoexist_PlanaWatchPot = 79
+	UIWorkCoexist_PlanaWatchPot = 79,
+	UIAttendanceEvent22 = 80,
+	UITacticalRelay = 81
 }
 
 enum DialogType : int {
@@ -4074,6 +4097,22 @@ enum SpoilerPopupType : int {
 	WarningNoGo = 3
 }
 
+enum SquadType : int {
+	None = 0,
+	Main = 1,
+	Support = 2,
+	TSS = 3
+}
+
+enum ApcSynergyTriggerType : int {
+	CharacterId = 0,
+	WeaponType = 1,
+	School = 2,
+	Club = 3,
+	PersonalityId = 4,
+	Tags = 5
+}
+
 enum ArenaRewardType : int {
 	None = 0,
 	Time = 1,
@@ -4113,7 +4152,13 @@ enum EchelonType : int {
 	Field = 23,
 	MultiFloorRaid = 24,
 	MinigameDefense = 25,
-	PermanentRaid = 26
+	PermanentRaid = 26,
+	TacticalRelay = 27,
+	TacticalRelayExplosion = 28,
+	TacticalRelayPierce = 29,
+	TacticalRelayMystic = 30,
+	TacticalRelaySonic = 31,
+	TacticalRelayChemical = 32
 }
 
 enum AssistRewardType : int {
@@ -4367,7 +4412,12 @@ enum MissionCompleteConditionType : int {
 	Reset_WorldRaidSpecificBossClear = 186,
 	Reset_WorldRaidActivateCoreCount = 187,
 	Reset_WorldRaidActivateUSBCount = 188,
-	Reset_EnterUICount = 189
+	Reset_EnterUICount = 189,
+	Reset_JankenClearCount = 190,
+	Reset_JankenEquipmentTierCheckCount = 191,
+	Reset_JankenGetSpecificScore = 192,
+	Reset_SpecificTacticalRelayWaveClear = 193,
+	Achieve_ClearTacticalRelayCount = 194
 }
 
 enum Nation : int {
@@ -4638,13 +4688,6 @@ enum StatLevelUpType : int {
 	TimeAttack = 4
 }
 
-enum SquadType : int {
-	None = 0,
-	Main = 1,
-	Support = 2,
-	TSS = 3
-}
-
 enum EquipmentCategory : int {
 	Unable = 0,
 	Exp = 1,
@@ -4758,7 +4801,26 @@ enum EquipmentOptionType : int {
 	EnhanceChemicalRate_Base = 91,
 	EnhanceChemicalRate_Coefficient = 92,
 	EnhanceCompositeArmorRate_Base = 93,
-	EnhanceCompositeArmorRate_Coefficient = 94
+	EnhanceCompositeArmorRate_Coefficient = 94,
+	AddStreetTerrainFactor_Base = 95,
+	AddOutdoorTerrainFactor_Base = 96,
+	AddIndoorTerrainFactor_Base = 97,
+	ReduceResistDamagedRate_Base = 98,
+	AddSummonedObstacleDamagedRatio_Base = 99,
+	EnhanceExDamageRate_Base = 100,
+	EnhanceBasicsDamageRate_Base = 101,
+	AddDamageRatioSynergyBulletType_Base = 102
+}
+
+enum Difficulty : int {
+	Normal = 0,
+	Hard = 1,
+	VeryHard = 2,
+	Hardcore = 3,
+	Extreme = 4,
+	Insane = 5,
+	Torment = 6,
+	Lunatic = 7
 }
 
 enum PotentialStatBonusRateType : int {
@@ -4941,17 +5003,6 @@ enum ItemCategory : int {
 	ProductDailyRecord = 11
 }
 
-enum Difficulty : int {
-	Normal = 0,
-	Hard = 1,
-	VeryHard = 2,
-	Hardcore = 3,
-	Extreme = 4,
-	Insane = 5,
-	Torment = 6,
-	Lunatic = 7
-}
-
 enum RaidBossGroupType : int {
 	None = 0,
 	Binah = 1,
@@ -4999,6 +5050,14 @@ enum EmblemCheckPassType : int {
 	Favor = 2,
 	Story = 3,
 	Potential = 4
+}
+
+enum NodeGrade : int {
+	Start = 0,
+	Normal = 1,
+	Rare = 2,
+	Unique = 3,
+	KeyStone = 4
 }
 
 enum EventContentBuffFindRule : int {
@@ -5134,7 +5193,8 @@ enum EventContentType : int {
 	MiniGameCCG = 40,
 	Concentration = 41,
 	InteractiveWorldRaid = 42,
-	ClueSearch = 43
+	ClueSearch = 43,
+	MinigameJanken = 44
 }
 
 enum MeetupConditionType : int {
@@ -5160,7 +5220,8 @@ enum EventTargetType : int {
 	AccountLevelExpIncrease = 7,
 	Raid = 8,
 	EliminateRaid = 9,
-	MultiFloorRaid = 10
+	MultiFloorRaid = 10,
+	TacticalRelay = 11
 }
 
 enum EventNotifyType : int {
@@ -5169,7 +5230,8 @@ enum EventNotifyType : int {
 	RaidSeasonManager = 2,
 	TimeAttackDungeonSeasonManage = 3,
 	EliminateRaidSeasonManage = 4,
-	MultiFloorRaidSeasonManage = 5
+	MultiFloorRaidSeasonManage = 5,
+	TacticalRelaySeasonManage = 6
 }
 
 enum EventContentScenarioConditionType : int {
@@ -5555,6 +5617,24 @@ enum DreamMakerVoiceCondition : int {
 	DailyResult = 4
 }
 
+enum JankenStageType : int {
+	None = 0,
+	Story = 1,
+	Normal = 2,
+	Challenge = 3
+}
+
+enum JankenVoiceCondition : int {
+	None = 0,
+	WinTurn = 1,
+	LoseTurn = 2,
+	DrawTurn = 3,
+	WinTurnSpecial = 4,
+	LoseTurnSpecial = 5,
+	WinBattle = 6,
+	LoseBattle = 7
+}
+
 enum RoadPuzzleRailTileType : int {
 	None = 0,
 	Straight = 1,
@@ -5782,7 +5862,8 @@ enum PurchaseSourceType : int {
 	ProductBattlePass = 3,
 	ProductSelect = 4,
 	ProductGooglePoint = 5,
-	ProductDailyRecord = 6
+	ProductDailyRecord = 6,
+	ProductStreakRecord = 7
 }
 
 enum ProductCategory : int {
@@ -5794,7 +5875,19 @@ enum ProductCategory : int {
 	TimeLimit = 5,
 	BattlePass = 6,
 	GooglePoint = 7,
-	DailyRecord = 8
+	DailyRecord = 8,
+	StreakRecord = 9,
+	PackagePickup = 10,
+	PackageDaily = 11,
+	PackageWeekly = 12,
+	PackageMonthly = 13,
+	GemLimited = 14,
+	TimeLimit2 = 15,
+	TimeLimit3 = 16,
+	TimeLimit4 = 17,
+	Stepup1 = 18,
+	Stepup2 = 19,
+	SpecialSupport = 20
 }
 
 enum ProductDisplayTag : int {
@@ -5809,6 +5902,24 @@ enum ProductDisplayTag : int {
 enum ProductSaleType : int {
 	Limited = 0,
 	SaleDay = 1
+}
+
+enum RecommendPageType : int {
+	Package = 0,
+	Gem = 1,
+	Monthly = 2,
+	SelectSecretStone = 3
+}
+
+enum ProductGroupType : int {
+	None = 0,
+	Recommend = 1,
+	TimeLimit = 2,
+	Package = 3,
+	Monthly = 4,
+	Gem = 5,
+	Stepup = 6,
+	SpecialSupport = 7
 }
 
 enum ShopFilterType : int {
@@ -5936,7 +6047,8 @@ enum ShortcutContentType : int {
 	SchoolDungeon = 10,
 	Academy = 11,
 	Mission = 12,
-	MultiFloorRaid = 13
+	MultiFloorRaid = 13,
+	TacticalRelay = 14
 }
 
 enum StickerGetConditionType : int {
@@ -6030,6 +6142,46 @@ enum GetStickerConditionType : int {
 	Achieve_StickerGetCondition_ClearFindGiftAndBloodDungeonCount = 75
 }
 
+enum FrameCategory : int {
+	None = 0,
+	Default = 1,
+	Mission = 2,
+	GroupStory = 3,
+	Event = 4,
+	MainStory = 5,
+	Favor = 6,
+	Boss = 7,
+	Etc = 8,
+	Etc_Anniversary = 9,
+	MultiFloorRaid = 10,
+	Potential = 11,
+	BattlePass = 12
+}
+
+enum FrameDisplayType : int {
+	Always = 0,
+	Time = 1,
+	Favor = 2,
+	Potential = 3
+}
+
+enum FrameCheckPassType : int {
+	None = 0,
+	Default = 1,
+	Favor = 2,
+	Story = 3,
+	Potential = 4
+}
+
+enum TacticalRelayStageType : int {
+	None = 0,
+	Explosion = 1,
+	Pierce = 2,
+	Mystic = 3,
+	Sonic = 4,
+	Chemical = 5
+}
+
 enum TimeAttackDungeonType : int {
 	None = 0,
 	Defense = 1,
@@ -6064,7 +6216,8 @@ enum TutorialFailureContentType : int {
 	Conquest = 6,
 	EliminateRaid = 7,
 	MultiFloorRaid = 8,
-	InteractiveWorldRaid = 9
+	InteractiveWorldRaid = 9,
+	TacticalRelay = 10
 }
 
 enum CVPrintType : int {
@@ -6331,87 +6484,89 @@ table ConstCombatExcel {
 	ShowBufficonExtraPassiveSkill: bool; // index 0x6
 	ShowBufficonLeaderSkill: bool; // index 0x7
 	ShowBufficonGroundPassiveSkill: bool; // index 0x8
-	SuppliesConditionStringId: string; // index 0x9
-	PublicSpeechBubbleOffsetX: float; // index 0xA
-	PublicSpeechBubbleOffsetY: float; // index 0xB
-	PublicSpeechBubbleOffsetZ: float; // index 0xC
-	ShowRaidListCount: int; // index 0xD
-	MaxRaidTicketCount: long; // index 0xE
-	MaxRaidBossSkillSlot: long; // index 0xF
-	EngageTimelinePath: string; // index 0x10
-	EngageWithSupporterTimelinePath: string; // index 0x11
-	VictoryTimelinePath: string; // index 0x12
-	TimeLimitAlarm: long; // index 0x13
-	EchelonMaxCommonCost: int; // index 0x14
-	EchelonInitCommonCost: int; // index 0x15
-	SkillSlotCoolTime: long; // index 0x16
-	EnemyRegenCost: long; // index 0x17
-	ChampionRegenCost: long; // index 0x18
-	PlayerRegenCostDelay: long; // index 0x19
-	CrowdControlFactor: long; // index 0x1A
-	RaidOpenScenarioId: string; // index 0x1B
-	EliminateRaidOpenScenarioId: string; // index 0x1C
-	DefenceConstA: long; // index 0x1D
-	DefenceConstB: long; // index 0x1E
-	DefenceConstC: long; // index 0x1F
-	DefenceConstD: long; // index 0x20
-	AccuracyConstA: long; // index 0x21
-	AccuracyConstB: long; // index 0x22
-	AccuracyConstC: long; // index 0x23
-	AccuracyConstD: long; // index 0x24
-	CriticalConstA: long; // index 0x25
-	CriticalConstB: long; // index 0x26
-	CriticalConstC: long; // index 0x27
-	CriticalConstD: long; // index 0x28
-	MaxGroupBuffLevel: int; // index 0x29
-	EmojiDefaultTime: int; // index 0x2A
-	TimeLineActionRotateSpeed: long; // index 0x2B
-	BodyRotateSpeed: long; // index 0x2C
-	NormalTimeScale: long; // index 0x2D
-	FastTimeScale: long; // index 0x2E
-	BulletTimeScale: long; // index 0x2F
-	UIDisplayDelayAfterSkillCutIn: long; // index 0x30
-	UseInitialRangeForCoverMove: bool; // index 0x31
-	SlowTimeScale: long; // index 0x32
-	AimIKMinDegree: float; // index 0x33
-	AimIKMaxDegree: float; // index 0x34
-	MinimumClearTime: int; // index 0x35
-	MinimumClearLevelGap: int; // index 0x36
-	CheckCheaterMaxUseCostNonArena: int; // index 0x37
-	CheckCheaterMaxUseCostArena: int; // index 0x38
-	AllowedMaxTimeScale: long; // index 0x39
-	RandomAnimationOutput: long; // index 0x3A
-	SummonedTeleportDistance: long; // index 0x3B
-	ArenaMinimumClearTime: int; // index 0x3C
-	WORLDBOSSBATTLELITTLE: long; // index 0x3D
-	WORLDBOSSBATTLEMIDDLE: long; // index 0x3E
-	WORLDBOSSBATTLEHIGH: long; // index 0x3F
-	WORLDBOSSBATTLEVERYHIGH: long; // index 0x40
-	WorldRaidAutoSyncTermSecond: long; // index 0x41
-	WorldRaidBossHpDecreaseTerm: long; // index 0x42
-	WorldRaidBossParcelReactionDelay: long; // index 0x43
-	RaidRankingJumpMinimumWaitingTime: long; // index 0x44
-	EffectTeleportDistance: float; // index 0x45
-	AuraExitThresholdMargin: long; // index 0x46
-	TSAInteractionDamageFactor: long; // index 0x47
-	VictoryInteractionRate: long; // index 0x48
-	EchelonExtensionEngageTimelinePath: string; // index 0x49
-	EchelonExtensionEngageWithSupporterTimelinePath: string; // index 0x4A
-	EchelonExtensionVictoryTimelinePath: string; // index 0x4B
-	EchelonExtensionEchelonMaxCommonCost: int; // index 0x4C
-	EchelonMaxOverloadCost: long; // index 0x4D
-	EchelonExtensionMaxOverloadCost: long; // index 0x4E
-	EchelonExtensionEchelonInitCommonCost: int; // index 0x4F
-	EchelonExtensionCostRegenRatio: long; // index 0x50
-	EchelonOverloadCostRegenRatio: long; // index 0x51
-	EchelonExtensionOverloadCostRegenRatio: long; // index 0x52
-	CheckCheaterMaxUseCostMultiFloorRaid: int; // index 0x53
-	ExcessiveTouchCheckTime: float; // index 0x54
-	ExcessiveTouchCheckCount: int; // index 0x55
-	CampaignAlertPopupLevelGap: int; // index 0x56
-	MoveCorrectionSkipRatio: int; // index 0x57
-	ObstacleColliderHeightJumpable: float; // index 0x58
-	ObstacleColliderHeightNotJumpable: float; // index 0x59
+	ShowBufficonApcSynergyPassiveSkill: bool; // index 0x9
+	SuppliesConditionStringId: string; // index 0xA
+	PublicSpeechBubbleOffsetX: float; // index 0xB
+	PublicSpeechBubbleOffsetY: float; // index 0xC
+	PublicSpeechBubbleOffsetZ: float; // index 0xD
+	ShowRaidListCount: int; // index 0xE
+	MaxRaidTicketCount: long; // index 0xF
+	MaxRaidBossSkillSlot: long; // index 0x10
+	EngageTimelinePath: string; // index 0x11
+	EngageWithSupporterTimelinePath: string; // index 0x12
+	VictoryTimelinePath: string; // index 0x13
+	TimeLimitAlarm: long; // index 0x14
+	EchelonMaxCommonCost: int; // index 0x15
+	EchelonInitCommonCost: int; // index 0x16
+	SkillSlotCoolTime: long; // index 0x17
+	EnemyRegenCost: long; // index 0x18
+	ChampionRegenCost: long; // index 0x19
+	PlayerRegenCostDelay: long; // index 0x1A
+	CrowdControlFactor: long; // index 0x1B
+	RaidOpenScenarioId: string; // index 0x1C
+	EliminateRaidOpenScenarioId: string; // index 0x1D
+	DefenceConstA: long; // index 0x1E
+	DefenceConstB: long; // index 0x1F
+	DefenceConstC: long; // index 0x20
+	DefenceConstD: long; // index 0x21
+	AccuracyConstA: long; // index 0x22
+	AccuracyConstB: long; // index 0x23
+	AccuracyConstC: long; // index 0x24
+	AccuracyConstD: long; // index 0x25
+	CriticalConstA: long; // index 0x26
+	CriticalConstB: long; // index 0x27
+	CriticalConstC: long; // index 0x28
+	CriticalConstD: long; // index 0x29
+	MaxGroupBuffLevel: int; // index 0x2A
+	EmojiDefaultTime: int; // index 0x2B
+	TimeLineActionRotateSpeed: long; // index 0x2C
+	BodyRotateSpeed: long; // index 0x2D
+	NormalTimeScale: long; // index 0x2E
+	FastTimeScale: long; // index 0x2F
+	BulletTimeScale: long; // index 0x30
+	UIDisplayDelayAfterSkillCutIn: long; // index 0x31
+	UseInitialRangeForCoverMove: bool; // index 0x32
+	SlowTimeScale: long; // index 0x33
+	AimIKMinDegree: float; // index 0x34
+	AimIKMaxDegree: float; // index 0x35
+	MinimumClearTime: int; // index 0x36
+	MinimumClearLevelGap: int; // index 0x37
+	CheckCheaterMaxUseCostNonArena: int; // index 0x38
+	CheckCheaterMaxUseCostArena: int; // index 0x39
+	AllowedMaxTimeScale: long; // index 0x3A
+	RandomAnimationOutput: long; // index 0x3B
+	SummonedTeleportDistance: long; // index 0x3C
+	ArenaMinimumClearTime: int; // index 0x3D
+	WORLDBOSSBATTLELITTLE: long; // index 0x3E
+	WORLDBOSSBATTLEMIDDLE: long; // index 0x3F
+	WORLDBOSSBATTLEHIGH: long; // index 0x40
+	WORLDBOSSBATTLEVERYHIGH: long; // index 0x41
+	WorldRaidAutoSyncTermSecond: long; // index 0x42
+	WorldRaidBossHpDecreaseTerm: long; // index 0x43
+	WorldRaidBossParcelReactionDelay: long; // index 0x44
+	RaidRankingJumpMinimumWaitingTime: long; // index 0x45
+	EffectTeleportDistance: float; // index 0x46
+	AuraExitThresholdMargin: long; // index 0x47
+	TSAInteractionDamageFactor: long; // index 0x48
+	VictoryInteractionRate: long; // index 0x49
+	EchelonExtensionEngageTimelinePath: string; // index 0x4A
+	EchelonExtensionEngageWithSupporterTimelinePath: string; // index 0x4B
+	EchelonExtensionVictoryTimelinePath: string; // index 0x4C
+	EchelonExtensionEchelonMaxCommonCost: int; // index 0x4D
+	EchelonMaxOverloadCost: long; // index 0x4E
+	EchelonExtensionMaxOverloadCost: long; // index 0x4F
+	EchelonExtensionEchelonInitCommonCost: int; // index 0x50
+	EchelonExtensionCostRegenRatio: long; // index 0x51
+	EchelonOverloadCostRegenRatio: long; // index 0x52
+	EchelonExtensionOverloadCostRegenRatio: long; // index 0x53
+	CheckCheaterMaxUseCostMultiFloorRaid: int; // index 0x54
+	ExcessiveTouchCheckTime: float; // index 0x55
+	ExcessiveTouchCheckCount: int; // index 0x56
+	CampaignAlertPopupLevelGap: int; // index 0x57
+	MoveCorrectionSkipRatio: int; // index 0x58
+	ObstacleColliderHeightJumpable: float; // index 0x59
+	ObstacleColliderHeightNotJumpable: float; // index 0x5A
+	CheckCheaterMaxUseCostTacticalRelay: int; // index 0x5B
 }
 
 table ConstCommonExcelTable {
@@ -6488,6 +6643,19 @@ table ConstKeyMappingExcel {
 	ScrollWheelFactor: float; // index 0x2
 	RemoveKeycodeWord: string; // index 0x3
 	TutorialDialogTouchKey: string; // index 0x4
+	PcInformationGroupID: long; // index 0x5
+	PcControllerInformationGroupID: long; // index 0x6
+	ControllerCursorFactorSlow: int; // index 0x7
+	ControllerCursorFactor: int; // index 0x8
+	ControllerCursorFactorFast: int; // index 0x9
+	VibrationSec: float; // index 0xA
+	VibrationPower: float; // index 0xB
+	ControllerScrollWheelFactor: float; // index 0xC
+	ControllerZoomSensitivity: float; // index 0xD
+	ControllerDpadMoveCheckRangeX: float; // index 0xE
+	ControllerDpadMoveCheckRangeY: float; // index 0xF
+	ControllerCursorClickScale: float; // index 0x10
+	ControllerScrollSensitivity: float; // index 0x11
 }
 
 table ConstMinigameCCGExcelTable {
@@ -6519,6 +6687,28 @@ table ConstMinigameCCGExcel {
 	BaseRewardRerollPoint: int; // index 0x16
 	SelectRewardOptionCount: int; // index 0x17
 	AlternativeCardImagePath: string; // index 0x18
+}
+
+table ConstMinigameJankenExcelTable {
+	DataList: [ConstMinigameJankenExcel]; // index 0x1
+}
+
+table ConstMinigameJankenExcel {
+	TimeLimitPerTurn: int; // index 0x1
+	MaxDamageRate: int; // index 0x2
+	DamageCurveCoefficient: float; // index 0x3
+	DrawConstantAttack: int; // index 0x4
+	DrawConstantBlock: int; // index 0x5
+	WinSceneRate: int; // index 0x6
+	LoseSceneRate: int; // index 0x7
+	EnemyAppearRate: int; // index 0x8
+	PlayerSpAtkConditionRate: int; // index 0x9
+	EnemySpAtkConditionRate: int; // index 0xA
+	ATGGroggyFixedDamage: int; // index 0xB
+	MaxSkillCost: int; // index 0xC
+	TimeLimitQTE: int; // index 0xD
+	StageOutroTimeOffset: int; // index 0xE
+	UIBossHpBarCount: int; // index 0xF
 }
 
 table ConstMinigameRoadPuzzleExcelTable {
@@ -6631,6 +6821,7 @@ table ConstStrategyExcel {
 	MultiSweepPresetSelectStageMaxCount: int; // index 0x16
 	MultiSweepPresetMaxSweepCount: int; // index 0x17
 	MultiSweepPresetSelectParcelMaxCount: int; // index 0x18
+	TacticalRelayEchelonCount: int; // index 0x19
 }
 
 table CouponStuffExcelTable {
@@ -7160,6 +7351,16 @@ table LocalizeFieldExcelTable {
 }
 
 table LocalizeFieldExcel {
+	Key: uint; // index 0x1
+	Kr: string; // index 0x2
+	Jp: string; // index 0x3
+}
+
+table LocalizeKeyMappingExcelTable {
+	DataList: [LocalizeKeyMappingExcel]; // index 0x1
+}
+
+table LocalizeKeyMappingExcel {
 	Key: uint; // index 0x1
 	Kr: string; // index 0x2
 	Jp: string; // index 0x3
