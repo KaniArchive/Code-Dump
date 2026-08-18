@@ -303,7 +303,12 @@ enum FieldDialogType : int {
 	Sweat_Nobubble = 23,
 	Twinkle_Nobubble = 24,
 	ZZZ_Nobubble = 25,
-	Chat_Nobubble = 26
+	Chat_Nobubble = 26,
+	Keyword_90101000 = 27,
+	SNS = 28,
+	ItemSack = 29,
+	ItemFlyer = 30,
+	ItemDocument = 31
 }
 
 enum ContentType : int {
@@ -467,7 +472,11 @@ enum StatType : int {
 	EnhanceCompositeArmorRate = 86,
 	EnhanceWeakDamageRate = 87,
 	ReduceWeakDamagedRate = 88,
-	Max = 89
+	WeakDamagedRatio = 89,
+	EffectiveDamagedRatio = 90,
+	NormalDamagedRatio = 91,
+	ResistDamagedRatio = 92,
+	Max = 93
 }
 
 enum Rarity : int {
@@ -603,7 +612,9 @@ enum FieldConditionType : int {
 	HasKeyword = 6,
 	HasEvidence = 7,
 	OpenDate = 8,
-	OpenDateAfter = 9
+	OpenDateAfter = 9,
+	Scenario = 10,
+	Timeline = 11
 }
 
 enum FieldInteractionType : int {
@@ -618,13 +629,19 @@ enum FieldInteractionType : int {
 	Timeline = 8,
 	ActionTrigger = 9,
 	Interplay = 10,
-	UnderCoverStage = 11
+	UnderCoverStage = 11,
+	SNSOpen = 12
 }
 
 enum FieldConditionClass : int {
 	AndOr = 0,
 	OrAnd = 1,
 	Multi = 2
+}
+
+enum FieldContentType : int {
+	Event = 0,
+	Narrative = 1
 }
 
 enum FieldTutorialType : int {
@@ -714,7 +731,9 @@ enum OpenConditionContent : int {
 	MinigameDreamMaker = 55,
 	MiniGameDefense = 56,
 	MiniGameCCG = 57,
-	Main_L_1_5 = 58
+	Main_L_1_5 = 58,
+	Main_SNS = 59,
+	PermanentRaid = 60
 }
 
 enum RecipeType : int {
@@ -827,7 +846,9 @@ enum DialogCategory : int {
 	UIAttendanceEvent19 = 74,
 	UIAttendanceEvent20 = 75,
 	UIAttendanceEvent21 = 76,
-	UIEventClueSearch = 77
+	UIEventClueSearch = 77,
+	UIWorkAronaWatering = 78,
+	UIWorkCoexist_PlanaWatchPot = 79
 }
 
 enum DialogType : int {
@@ -981,7 +1002,8 @@ enum Club : int {
 	PrefectBrigade = 53,
 	FreeTradeCartel = 54,
 	NicomediasTroop = 55,
-	PublishingDepartment = 56
+	PublishingDepartment = 56,
+	FoxSquad = 57
 }
 
 enum Tag : int {
@@ -4118,7 +4140,8 @@ enum MissionCategory : int {
 	EventAchievement = 8,
 	DailySudden = 9,
 	DailyFixed = 10,
-	EventFixed = 11
+	EventFixed = 11,
+	WelcomeMission = 12
 }
 
 enum MissionResetType : int {
@@ -4323,7 +4346,8 @@ enum MissionCompleteConditionType : int {
 	Reset_ConcentrationClearCount = 185,
 	Reset_WorldRaidSpecificBossClear = 186,
 	Reset_WorldRaidActivateCoreCount = 187,
-	Reset_WorldRaidActivateUSBCount = 188
+	Reset_WorldRaidActivateUSBCount = 188,
+	Reset_EnterUICount = 189
 }
 
 enum Nation : int {
@@ -4833,6 +4857,13 @@ enum FeverBattleType : int {
 	Arena = 3
 }
 
+enum ScenarioModeSubTypes : int {
+	None = 0,
+	Club = 1,
+	Series1 = 2,
+	Series2 = 3
+}
+
 enum ScenarioModeTypes : int {
 	None = 0,
 	Main = 1,
@@ -4908,7 +4939,8 @@ enum RaidBossGroupType : int {
 	EN0005 = 10,
 	EN0006 = 11,
 	EN0010 = 12,
-	EN0013 = 13
+	EN0013 = 13,
+	EN0022 = 14
 }
 
 enum EmblemCategory : int {
@@ -5156,6 +5188,17 @@ enum SchoolDungeonType : int {
 	None = 3
 }
 
+enum FieldSNSStateType : int {
+	Open = 0,
+	Close = 1
+}
+
+enum FieldSNSPostType : int {
+	None = 0,
+	Normal = 1,
+	Bookmark = 2
+}
+
 enum FurnitureCategory : int {
 	Furnitures = 0,
 	Decorations = 1,
@@ -5244,7 +5287,8 @@ enum ConditionType : int {
 	StayMemorialLobby = 8,
 	OpenSeasonBirthdayPlayerDialog = 9,
 	AssistUsedByOther = 10,
-	EquipCharacterGear = 11
+	EquipCharacterGear = 11,
+	CompleteTutorial = 12
 }
 
 enum AchievementType : int {
@@ -5734,6 +5778,12 @@ enum ProductTagType : int {
 	Biweekly = 2
 }
 
+enum AutoSelectPopupType : int {
+	None = 0,
+	FavorItem = 1,
+	GrowthItem = 2
+}
+
 enum ProductSelectSubType : int {
 	Select = 0,
 	AutoSelect = 1
@@ -5743,11 +5793,6 @@ enum ScenarioBGScroll : int {
 	None = 0,
 	Vertical = 1,
 	Horizontal = 2
-}
-
-enum ScenarioModeSubTypes : int {
-	None = 0,
-	Club = 1
 }
 
 enum ServiceActionType : int {
@@ -5857,6 +5902,22 @@ enum ShopRefreshPeriodType : int {
 	Month = 3
 }
 
+enum GachaPhase : int {
+	GachaIntro = 0,
+	CharacterAppearance = 1,
+	SignatureIntro = 2,
+	SignatureWait = 3,
+	SignatureConfirm = 4,
+	Result = 5
+}
+
+enum DirectingCharacter : int {
+	None = 0,
+	Arona = 1,
+	Plana = 2,
+	Both = 3
+}
+
 enum GachaDisplayTag : int {
 	None = 0,
 	Limited = 1,
@@ -5868,7 +5929,8 @@ enum GachaDisplayTag : int {
 	SelectRecruit = 7,
 	LimitedThreeStar = 8,
 	Revival = 9,
-	SelectLimited = 10
+	SelectLimited = 10,
+	NewbieDateLimited = 11
 }
 
 enum ShopPurchasePopupType : int {
@@ -6023,6 +6085,29 @@ enum CVPrintType : int {
 	CharacterOverwrite = 0,
 	PrefabOverwrite = 1,
 	Add = 2
+}
+
+enum WelcomeCampaignAttendanceType : int {
+	Normal = 0,
+	Continuous = 1
+}
+
+enum MissionCompleteUIPrefabType : int {
+	None = 0,
+	UIStageSelect = 1,
+	UIAcademyLobby = 2,
+	UIArena = 3,
+	UIRaidLobby = 4,
+	UICafe = 5,
+	UIShop = 6,
+	UIGacha = 7,
+	UIScenarioMode = 8,
+	UICharacterCollection = 9,
+	UIWeekDungeonLobby = 10,
+	UISchoolDungeonLobby = 11,
+	UIMultiFloorRaid_Lobby = 12,
+	UIWeekDungeonLobby_Chaser = 13,
+	UIEliminateRaidLobby = 14
 }
 
 table AddressableBlackListExcelTable {
@@ -6407,6 +6492,8 @@ table ConstContentsExcelTable {
 table ConstContentsExcel {
 	UseSearchFieldOptimize: bool; // index 0x1
 	SearchUpdateTime: float; // index 0x2
+	LobbyDayTimeFrom: int; // index 0x3
+	LobbyNightTimeFrom: int; // index 0x4
 }
 
 table ConstEventCommonExcelTable {
@@ -6908,11 +6995,12 @@ table FieldQuestExcel {
 	IsDaily: bool; // index 0x3
 	FieldDateId: long; // index 0x4
 	Opendate: long; // index 0x5
-	AssetPath: string; // index 0x6
-	RewardId: long; // index 0x7
-	Prob: int; // index 0x8
-	QuestNamKey: uint; // index 0x9
-	QuestDescKey: uint; // index 0xA
+	QuestGroupId: long; // index 0x6
+	AssetPath: string; // index 0x7
+	RewardId: long; // index 0x8
+	Prob: int; // index 0x9
+	QuestNamKey: uint; // index 0xA
+	QuestDescKey: uint; // index 0xB
 }
 
 table FieldRewardExcelTable {
@@ -6963,6 +7051,7 @@ table FieldSeasonExcel {
 	Int: FieldDialogType; // index 0x9
 	: string; // index 0xA
 	: string; // index 0xB
+	Int: FieldContentType; // index 0xC
 }
 
 table FieldStoryStageExcelTable {
