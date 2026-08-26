@@ -615,7 +615,8 @@ enum RewardTag : int {
 	GemBonus = 20,
 	GemPaid = 21,
 	ConquestTileConquer = 22,
-	Mileage = 23
+	Mileage = 23,
+	TacticalRelayWave = 24
 }
 
 enum FieldConditionType : int {
@@ -4053,7 +4054,8 @@ enum Club : int {
 	FreeTradeCartel = 54,
 	NicomediasTroop = 55,
 	PublishingDepartment = 56,
-	FoxSquad = 57
+	FoxSquad = 57,
+	DivingClub = 58
 }
 
 enum School : int {
@@ -4073,7 +4075,8 @@ enum School : int {
 	ETC = 13,
 	Tokiwadai = 14,
 	Sakugawa = 15,
-	Highlander = 16
+	Highlander = 16,
+	Odyssey = 17
 }
 
 enum AcademyMessageConditions : int {
@@ -4417,7 +4420,8 @@ enum MissionCompleteConditionType : int {
 	Reset_JankenEquipmentTierCheckCount = 191,
 	Reset_JankenGetSpecificScore = 192,
 	Reset_SpecificTacticalRelayWaveClear = 193,
-	Achieve_ClearTacticalRelayCount = 194
+	Achieve_ClearTacticalRelayCount = 194,
+	Achieve_EngraveLevelUpCount = 195
 }
 
 enum Nation : int {
@@ -5887,7 +5891,8 @@ enum ProductCategory : int {
 	TimeLimit4 = 17,
 	Stepup1 = 18,
 	Stepup2 = 19,
-	SpecialSupport = 20
+	SpecialSupport = 20,
+	Stepup3 = 21
 }
 
 enum ProductDisplayTag : int {
@@ -5896,7 +5901,8 @@ enum ProductDisplayTag : int {
 	Hot = 2,
 	Sale = 3,
 	Limited = 4,
-	Free = 5
+	Free = 5,
+	Recommend = 6
 }
 
 enum ProductSaleType : int {
@@ -5953,7 +5959,7 @@ enum ShopFilterType : int {
 	SchoolTotalTicket = 27,
 	SRT = 28,
 	Highlander = 29,
-	ShopFilterDUMMY_3 = 30,
+	Odyssey = 30,
 	ShopFilterDUMMY_4 = 31,
 	ShopFilterDUMMY_5 = 32,
 	ShopFilterDUMMY_6 = 33,
@@ -6011,6 +6017,12 @@ enum GachaDisplayTag : int {
 	Revival = 9,
 	SelectLimited = 10,
 	NewbieDateLimited = 11
+}
+
+enum WishListConfig : int {
+	NotUse = 0,
+	UseToggle = 1,
+	UseFixed = 2
 }
 
 enum ShopPurchasePopupType : int {
@@ -6502,71 +6514,72 @@ table ConstCombatExcel {
 	EnemyRegenCost: long; // index 0x18
 	ChampionRegenCost: long; // index 0x19
 	PlayerRegenCostDelay: long; // index 0x1A
-	CrowdControlFactor: long; // index 0x1B
-	RaidOpenScenarioId: string; // index 0x1C
-	EliminateRaidOpenScenarioId: string; // index 0x1D
-	DefenceConstA: long; // index 0x1E
-	DefenceConstB: long; // index 0x1F
-	DefenceConstC: long; // index 0x20
-	DefenceConstD: long; // index 0x21
-	AccuracyConstA: long; // index 0x22
-	AccuracyConstB: long; // index 0x23
-	AccuracyConstC: long; // index 0x24
-	AccuracyConstD: long; // index 0x25
-	CriticalConstA: long; // index 0x26
-	CriticalConstB: long; // index 0x27
-	CriticalConstC: long; // index 0x28
-	CriticalConstD: long; // index 0x29
-	MaxGroupBuffLevel: int; // index 0x2A
-	EmojiDefaultTime: int; // index 0x2B
-	TimeLineActionRotateSpeed: long; // index 0x2C
-	BodyRotateSpeed: long; // index 0x2D
-	NormalTimeScale: long; // index 0x2E
-	FastTimeScale: long; // index 0x2F
-	BulletTimeScale: long; // index 0x30
-	UIDisplayDelayAfterSkillCutIn: long; // index 0x31
-	UseInitialRangeForCoverMove: bool; // index 0x32
-	SlowTimeScale: long; // index 0x33
-	AimIKMinDegree: float; // index 0x34
-	AimIKMaxDegree: float; // index 0x35
-	MinimumClearTime: int; // index 0x36
-	MinimumClearLevelGap: int; // index 0x37
-	CheckCheaterMaxUseCostNonArena: int; // index 0x38
-	CheckCheaterMaxUseCostArena: int; // index 0x39
-	AllowedMaxTimeScale: long; // index 0x3A
-	RandomAnimationOutput: long; // index 0x3B
-	SummonedTeleportDistance: long; // index 0x3C
-	ArenaMinimumClearTime: int; // index 0x3D
-	WORLDBOSSBATTLELITTLE: long; // index 0x3E
-	WORLDBOSSBATTLEMIDDLE: long; // index 0x3F
-	WORLDBOSSBATTLEHIGH: long; // index 0x40
-	WORLDBOSSBATTLEVERYHIGH: long; // index 0x41
-	WorldRaidAutoSyncTermSecond: long; // index 0x42
-	WorldRaidBossHpDecreaseTerm: long; // index 0x43
-	WorldRaidBossParcelReactionDelay: long; // index 0x44
-	RaidRankingJumpMinimumWaitingTime: long; // index 0x45
-	EffectTeleportDistance: float; // index 0x46
-	AuraExitThresholdMargin: long; // index 0x47
-	TSAInteractionDamageFactor: long; // index 0x48
-	VictoryInteractionRate: long; // index 0x49
-	EchelonExtensionEngageTimelinePath: string; // index 0x4A
-	EchelonExtensionEngageWithSupporterTimelinePath: string; // index 0x4B
-	EchelonExtensionVictoryTimelinePath: string; // index 0x4C
-	EchelonExtensionEchelonMaxCommonCost: int; // index 0x4D
-	EchelonMaxOverloadCost: long; // index 0x4E
-	EchelonExtensionMaxOverloadCost: long; // index 0x4F
-	EchelonExtensionEchelonInitCommonCost: int; // index 0x50
-	EchelonExtensionCostRegenRatio: long; // index 0x51
-	EchelonOverloadCostRegenRatio: long; // index 0x52
-	EchelonExtensionOverloadCostRegenRatio: long; // index 0x53
-	CheckCheaterMaxUseCostMultiFloorRaid: int; // index 0x54
-	ExcessiveTouchCheckTime: float; // index 0x55
-	ExcessiveTouchCheckCount: int; // index 0x56
-	CampaignAlertPopupLevelGap: int; // index 0x57
-	MoveCorrectionSkipRatio: int; // index 0x58
-	ObstacleColliderHeightJumpable: float; // index 0x59
-	ObstacleColliderHeightNotJumpable: float; // index 0x5A
-	CheckCheaterMaxUseCostTacticalRelay: int; // index 0x5B
+	PlayerAutoUseStartDelay: long; // index 0x1B
+	CrowdControlFactor: long; // index 0x1C
+	RaidOpenScenarioId: string; // index 0x1D
+	EliminateRaidOpenScenarioId: string; // index 0x1E
+	DefenceConstA: long; // index 0x1F
+	DefenceConstB: long; // index 0x20
+	DefenceConstC: long; // index 0x21
+	DefenceConstD: long; // index 0x22
+	AccuracyConstA: long; // index 0x23
+	AccuracyConstB: long; // index 0x24
+	AccuracyConstC: long; // index 0x25
+	AccuracyConstD: long; // index 0x26
+	CriticalConstA: long; // index 0x27
+	CriticalConstB: long; // index 0x28
+	CriticalConstC: long; // index 0x29
+	CriticalConstD: long; // index 0x2A
+	MaxGroupBuffLevel: int; // index 0x2B
+	EmojiDefaultTime: int; // index 0x2C
+	TimeLineActionRotateSpeed: long; // index 0x2D
+	BodyRotateSpeed: long; // index 0x2E
+	NormalTimeScale: long; // index 0x2F
+	FastTimeScale: long; // index 0x30
+	BulletTimeScale: long; // index 0x31
+	UIDisplayDelayAfterSkillCutIn: long; // index 0x32
+	UseInitialRangeForCoverMove: bool; // index 0x33
+	SlowTimeScale: long; // index 0x34
+	AimIKMinDegree: float; // index 0x35
+	AimIKMaxDegree: float; // index 0x36
+	MinimumClearTime: int; // index 0x37
+	MinimumClearLevelGap: int; // index 0x38
+	CheckCheaterMaxUseCostNonArena: int; // index 0x39
+	CheckCheaterMaxUseCostArena: int; // index 0x3A
+	AllowedMaxTimeScale: long; // index 0x3B
+	RandomAnimationOutput: long; // index 0x3C
+	SummonedTeleportDistance: long; // index 0x3D
+	ArenaMinimumClearTime: int; // index 0x3E
+	WORLDBOSSBATTLELITTLE: long; // index 0x3F
+	WORLDBOSSBATTLEMIDDLE: long; // index 0x40
+	WORLDBOSSBATTLEHIGH: long; // index 0x41
+	WORLDBOSSBATTLEVERYHIGH: long; // index 0x42
+	WorldRaidAutoSyncTermSecond: long; // index 0x43
+	WorldRaidBossHpDecreaseTerm: long; // index 0x44
+	WorldRaidBossParcelReactionDelay: long; // index 0x45
+	RaidRankingJumpMinimumWaitingTime: long; // index 0x46
+	EffectTeleportDistance: float; // index 0x47
+	AuraExitThresholdMargin: long; // index 0x48
+	TSAInteractionDamageFactor: long; // index 0x49
+	VictoryInteractionRate: long; // index 0x4A
+	EchelonExtensionEngageTimelinePath: string; // index 0x4B
+	EchelonExtensionEngageWithSupporterTimelinePath: string; // index 0x4C
+	EchelonExtensionVictoryTimelinePath: string; // index 0x4D
+	EchelonExtensionEchelonMaxCommonCost: int; // index 0x4E
+	EchelonMaxOverloadCost: long; // index 0x4F
+	EchelonExtensionMaxOverloadCost: long; // index 0x50
+	EchelonExtensionEchelonInitCommonCost: int; // index 0x51
+	EchelonExtensionCostRegenRatio: long; // index 0x52
+	EchelonOverloadCostRegenRatio: long; // index 0x53
+	EchelonExtensionOverloadCostRegenRatio: long; // index 0x54
+	CheckCheaterMaxUseCostMultiFloorRaid: int; // index 0x55
+	ExcessiveTouchCheckTime: float; // index 0x56
+	ExcessiveTouchCheckCount: int; // index 0x57
+	CampaignAlertPopupLevelGap: int; // index 0x58
+	MoveCorrectionSkipRatio: int; // index 0x59
+	ObstacleColliderHeightJumpable: float; // index 0x5A
+	ObstacleColliderHeightNotJumpable: float; // index 0x5B
+	CheckCheaterMaxUseCostTacticalRelay: int; // index 0x5C
 }
 
 table ConstCommonExcelTable {
