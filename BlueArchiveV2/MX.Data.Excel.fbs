@@ -599,6 +599,71 @@ table CharacterAcademyTagsExcel {
 	ZoneWhiteListTags: [FlatData.Tag]; // index 0x6
 }
 
+table CharacterAdaptationExcel {
+	SeasonId: long; // index 0x1
+	AdaptationCharacterId: long; // index 0x2
+	ChooseBtnPath: string; // index 0x3
+	ProgressOrder: long; // index 0x4
+	AdaptationMissionStepCount: long; // index 0x5
+	CharacterStepGrowthGroupId: long; // index 0x6
+}
+
+table CharacterAdaptationGrowthReturnExcel {
+	Id: long; // index 0x1
+	GrowthReturnType: FlatData.GrowthReturnType; // index 0x2
+	ReturnStep: long; // index 0x3
+	ReturnDivideUnit: long; // index 0x4
+	ReturnParcelType: FlatData.ParcelType; // index 0x5
+	ReturnParcelId: long; // index 0x6
+	ReturnParcelAmount: int; // index 0x7
+}
+
+table CharacterAdaptationMissionExcel {
+	SeasonId: long; // index 0x1
+	CharacterId: long; // index 0x2
+	Id: long; // index 0x3
+	Category: FlatData.MissionCategory; // index 0x4
+	IsLegacy: bool; // index 0x5
+	Step: int; // index 0x6
+	Description: uint; // index 0x7
+	ToastDisplayType: FlatData.MissionToastDisplayConditionType; // index 0x8
+	ToastImagePath: string; // index 0x9
+	ShortcutUI: [string]; // index 0xA
+	CompleteConditionType: FlatData.MissionCompleteConditionType; // index 0xB
+	CompleteConditionCount: long; // index 0xC
+	CompleteConditionParameter: [long]; // index 0xD
+	CompleteConditionParameterTag: [FlatData.Tag]; // index 0xE
+	MissionRewardParcelType: [FlatData.ParcelType]; // index 0xF
+	MissionRewardParcelId: [long]; // index 0x10
+	MissionRewardAmount: [int]; // index 0x11
+}
+
+table CharacterAdaptationSeasonExcel {
+	Id: long; // index 0x1
+	Enabled: bool; // index 0x2
+	StartDate: string; // index 0x3
+	EndDate: string; // index 0x4
+	IconOrder: long; // index 0x5
+	LobbyBannerImage: string; // index 0x6
+}
+
+table CharacterAdaptationStepGrowthExcel {
+	Id: long; // index 0x1
+	GroupId: long; // index 0x2
+	MissionStep: long; // index 0x3
+	CharacterLevel: long; // index 0x4
+	EquipSlot1Tier: long; // index 0x5
+	EquipSlot1Level: long; // index 0x6
+	EquipSlot2Tier: long; // index 0x7
+	EquipSlot2Level: long; // index 0x8
+	EquipSlot3Tier: long; // index 0x9
+	EquipSlot3Level: long; // index 0xA
+	ExSkillLevel: long; // index 0xB
+	PublicSkillLevel: long; // index 0xC
+	PassiveSkillLevel: long; // index 0xD
+	ExtraPassiveSkillLevel: long; // index 0xE
+}
+
 table CharacterAIExcel {
 	Id: long; // index 0x1
 	EngageType: FlatData.EngageType; // index 0x2
@@ -644,8 +709,8 @@ table CharacterDialogBattlePassExcel {
 	DialogType: FlatData.DialogType; // index 0xB
 	Duration: long; // index 0xC
 	AnimationName: string; // index 0xD
-	LocalizeKR: string; // index 0xE
-	LocalizeJP: string; // index 0xF
+	Localize_KR: string; // index 0xE
+	Localize_JP: string; // index 0xF
 	VoiceId: [uint]; // index 0x10
 	CollectionVisible: bool; // index 0x11
 	CVCollectionType: FlatData.CVCollectionType; // index 0x12
@@ -660,8 +725,8 @@ table CharacterDialogEmojiExcel {
 	Duration: long; // index 0x4
 	DurationAdd: long; // index 0x5
 	HideUI: bool; // index 0x6
-	LocalizeKR: string; // index 0x7
-	LocalizeJP: string; // index 0x8
+	Localize_KR: string; // index 0x7
+	Localize_JP: string; // index 0x8
 	VoiceId: [uint]; // index 0x9
 	CharacterId: long; // index 0xA
 	CostumeUniqueId: long; // index 0xB
@@ -689,8 +754,8 @@ table CharacterDialogEventExcel {
 	ActionName: string; // index 0xC
 	Duration: long; // index 0xD
 	AnimationName: string; // index 0xE
-	LocalizeKR: string; // index 0xF
-	LocalizeJP: string; // index 0x10
+	Localize_KR: string; // index 0xF
+	Localize_JP: string; // index 0x10
 	VoiceId: [uint]; // index 0x11
 	CollectionVisible: bool; // index 0x12
 	CVCollectionType: FlatData.CVCollectionType; // index 0x13
@@ -716,8 +781,8 @@ table CharacterDialogExcel {
 	ActionName: string; // index 0xC
 	Duration: long; // index 0xD
 	AnimationName: string; // index 0xE
-	LocalizeKR: string; // index 0xF
-	LocalizeJP: string; // index 0x10
+	Localize_KR: string; // index 0xF
+	Localize_JP: string; // index 0x10
 	VoiceId: [uint]; // index 0x11
 	ApplyPosition: bool; // index 0x12
 	PosX: float; // index 0x13
@@ -734,8 +799,8 @@ table CharacterDialogSubtitleExcel {
 	CharacterId: long; // index 0x2
 	Duration: long; // index 0x3
 	Separate: bool; // index 0x4
-	LocalizeKR: string; // index 0x5
-	LocalizeJP: string; // index 0x6
+	Localize_KR: string; // index 0x5
+	Localize_JP: string; // index 0x6
 }
 
 table CharacterEngraveExcel {
@@ -756,7 +821,7 @@ table CharacterExcel {
 	ReleaseDate: string; // index 0x7
 	CollectionVisibleStartDate: string; // index 0x8
 	CollectionVisibleEndDate: string; // index 0x9
-	IsPlayableCharacter: bool; // index 0xA
+	isPlayableCharacter: bool; // index 0xA
 	LocalizeEtcId: uint; // index 0xB
 	Rarity: FlatData.Rarity; // index 0xC
 	IsNPC: bool; // index 0xD
@@ -789,7 +854,7 @@ table CharacterExcel {
 	EquipmentSlot: [FlatData.EquipmentCategory]; // index 0x28
 	WeaponLocalizeId: uint; // index 0x29
 	DisplayEnemyInfo: bool; // index 0x2A
-	BodyRadius: long; // index 0x2B
+	bodyRadius: long; // index 0x2B
 	RandomEffectRadius: long; // index 0x2C
 	TargetGuideScale: float; // index 0x2D
 	HPBarHide: bool; // index 0x2E
@@ -1033,7 +1098,7 @@ table CharacterStatExcel {
 	ResistDamagedRatio: long; // index 0x4C
 	AddDamageRatioSynergyBulletType: long; // index 0x4D
 	AddSummonedObstacleDamagedRatio: long; // index 0x4E
-	DamagedRatioObstacle: long; // index 0x4F
+	DamagedRatio_Obstacle: long; // index 0x4F
 	HealRate: long; // index 0x50
 	HealLightArmorRate: long; // index 0x51
 	HealHeavyArmorRate: long; // index 0x52
@@ -1147,8 +1212,8 @@ table CharacterVoiceSubtitleExcel {
 	CharacterVoiceGroupId: long; // index 0x2
 	Duration: long; // index 0x3
 	Separate: bool; // index 0x4
-	LocalizeKR: string; // index 0x5
-	LocalizeJP: string; // index 0x6
+	Localize_KR: string; // index 0x5
+	Localize_JP: string; // index 0x6
 }
 
 table CharacterWeaponExcel {
@@ -1533,12 +1598,13 @@ table CostumeExcel {
 	UseObjectHPBAR: bool; // index 0x1B
 	TextureBoss: string; // index 0x1C
 	TextureSkillCard: [string]; // index 0x1D
-	InformationPacel: string; // index 0x1E
-	AnimationSSR: string; // index 0x1F
-	EnterStrategyAnimationName: string; // index 0x20
-	AnimationValidator: bool; // index 0x21
-	CharacterVoiceGroupId: long; // index 0x22
-	ShowObjectHpStatus: bool; // index 0x23
+	TextureGachaCard: string; // index 0x1E
+	InformationPacel: string; // index 0x1F
+	AnimationSSR: string; // index 0x20
+	EnterStrategyAnimationName: string; // index 0x21
+	AnimationValidator: bool; // index 0x22
+	CharacterVoiceGroupId: long; // index 0x23
+	ShowObjectHpStatus: bool; // index 0x24
 }
 
 table CurrencyExcel {
@@ -1617,13 +1683,13 @@ table EliminateRaidSeasonManageExcel {
 	MaxSeasonRewardGauage: int; // index 0xD
 	StackedSeasonRewardGauge: [long]; // index 0xE
 	SeasonRewardId: [long]; // index 0xF
-	LimitedRewardIdNormal: long; // index 0x10
-	LimitedRewardIdHard: long; // index 0x11
-	LimitedRewardIdVeryhard: long; // index 0x12
-	LimitedRewardIdHardcore: long; // index 0x13
-	LimitedRewardIdExtreme: long; // index 0x14
-	LimitedRewardIdInsane: long; // index 0x15
-	LimitedRewardIdTorment: long; // index 0x16
+	LimitedRewardId_Normal: long; // index 0x10
+	LimitedRewardId_Hard: long; // index 0x11
+	LimitedRewardId_Veryhard: long; // index 0x12
+	LimitedRewardId_Hardcore: long; // index 0x13
+	LimitedRewardId_Extreme: long; // index 0x14
+	LimitedRewardId_Insane: long; // index 0x15
+	LimitedRewardId_Torment: long; // index 0x16
 }
 
 table EliminateRaidStageExcel {
@@ -1704,8 +1770,8 @@ table EmblemExcel {
 	EmblemIconPath: string; // index 0xA
 	EmblemIconNumControl: int; // index 0xB
 	EmblemIconBGPath: string; // index 0xC
-	EmblemBGPathJp: string; // index 0xD
-	EmblemBGPathKr: string; // index 0xE
+	EmblemBGPath_Jp: string; // index 0xD
+	EmblemBGPath_Kr: string; // index 0xE
 	EmblemEffectPath: string; // index 0xF
 	DisplayType: FlatData.EmblemDisplayType; // index 0x10
 	DisplayStartDate: string; // index 0x11
@@ -1861,7 +1927,7 @@ table EventContentCardShopExcel {
 	IsLegacy: bool; // index 0x6
 	RefreshGroup: int; // index 0x7
 	Prob: int; // index 0x8
-	ProbWeight1: int; // index 0x9
+	ProbWeight_1: int; // index 0x9
 	RewardParcelType: [FlatData.ParcelType]; // index 0xA
 	RewardParcelId: [long]; // index 0xB
 	RewardParcelAmount: [long]; // index 0xC
@@ -1914,8 +1980,12 @@ table EventContentClueExcel {
 table EventContentClueSearchExcel {
 	EventContentId: long; // index 0x1
 	TitleLocalize: uint; // index 0x2
-	UsePrefabName: string; // index 0x3
-	ClueBGImagePath: string; // index 0x4
+	SearchCostGoodsId: long; // index 0x3
+	DeductionPointItemId: long; // index 0x4
+	InspirationConvertCount: long; // index 0x5
+	MaxSearchCount: long; // index 0x6
+	UsePrefabName: string; // index 0x7
+	ClueBGImagePath: string; // index 0x8
 }
 
 table EventContentClueSearchRewardExcel {
@@ -2012,7 +2082,7 @@ table EventContentDebuffRewardExcel {
 table EventContentDiceRaceEffectExcel {
 	EventContentId: long; // index 0x1
 	EventContentDiceRaceResultType: FlatData.EventContentDiceRaceResultType; // index 0x2
-	IsDiceResult: bool; // index 0x3
+	isDiceResult: bool; // index 0x3
 	AniClip: string; // index 0x4
 	VoiceId: [uint]; // index 0x5
 }
@@ -2104,13 +2174,14 @@ table EventContentLocationExcel {
 	Id: long; // index 0x2
 	LocalizeEtcId: uint; // index 0x3
 	PrefabPath: string; // index 0x4
-	LocationResetScheduleCount: int; // index 0x5
-	ScheduleEventPointCostParcelType: FlatData.ParcelType; // index 0x6
-	ScheduleEventPointCostParcelId: long; // index 0x7
-	ScheduleEventPointCostParcelAmount: long; // index 0x8
-	RewardParcelType: FlatData.ParcelType; // index 0x9
-	RewardParcelId: long; // index 0xA
-	InformationGroupId: long; // index 0xB
+	BGPath: string; // index 0x5
+	LocationResetScheduleCount: int; // index 0x6
+	ScheduleEventPointCostParcelType: FlatData.ParcelType; // index 0x7
+	ScheduleEventPointCostParcelId: long; // index 0x8
+	ScheduleEventPointCostParcelAmount: long; // index 0x9
+	RewardParcelType: FlatData.ParcelType; // index 0xA
+	RewardParcelId: long; // index 0xB
+	InformationGroupId: long; // index 0xC
 }
 
 table EventContentLocationRewardExcel {
@@ -2621,12 +2692,12 @@ table FixedEchelonSettingExcel {
 	MainGrade: [int]; // index 0x6
 	MainExSkillLevel: [int]; // index 0x7
 	MainNoneExSkillLevel: [int]; // index 0x8
-	MainEquipment1Tier: [int]; // index 0x9
-	MainEquipment1Level: [int]; // index 0xA
-	MainEquipment2Tier: [int]; // index 0xB
-	MainEquipment2Level: [int]; // index 0xC
-	MainEquipment3Tier: [int]; // index 0xD
-	MainEquipment3Level: [int]; // index 0xE
+	MainEquipment1_Tier: [int]; // index 0x9
+	MainEquipment1_level: [int]; // index 0xA
+	MainEquipment2_Tier: [int]; // index 0xB
+	MainEquipment2_level: [int]; // index 0xC
+	MainEquipment3_Tier: [int]; // index 0xD
+	MainEquipment3_level: [int]; // index 0xE
 	MainCharacterWeaponGrade: [int]; // index 0xF
 	MainCharacterWeaponLevel: [int]; // index 0x10
 	MainCharacterGearTier: [int]; // index 0x11
@@ -2636,12 +2707,12 @@ table FixedEchelonSettingExcel {
 	SupportGrade: [int]; // index 0x15
 	SupportExSkillLevel: [int]; // index 0x16
 	SupportNoneExSkillLevel: [int]; // index 0x17
-	SupportEquipment1Tier: [int]; // index 0x18
-	SupportEquipment1Level: [int]; // index 0x19
-	SupportEquipment2Tier: [int]; // index 0x1A
-	SupportEquipment2Level: [int]; // index 0x1B
-	SupportEquipment3Tier: [int]; // index 0x1C
-	SupportEquipment3Level: [int]; // index 0x1D
+	SupportEquipment1_Tier: [int]; // index 0x18
+	SupportEquipment1_level: [int]; // index 0x19
+	SupportEquipment2_Tier: [int]; // index 0x1A
+	SupportEquipment2_level: [int]; // index 0x1B
+	SupportEquipment3_Tier: [int]; // index 0x1C
+	SupportEquipment3_level: [int]; // index 0x1D
 	SupportCharacterWeaponGrade: [int]; // index 0x1E
 	SupportCharacterWeaponLevel: [int]; // index 0x1F
 	SupportCharacterGearTier: [int]; // index 0x20
@@ -2651,14 +2722,14 @@ table FixedEchelonSettingExcel {
 
 table FixedStrategyExcel {
 	Id: long; // index 0x1
-	StageEnterEchelon01FixedEchelonId: long; // index 0x2
-	StageEnterEchelon01Starttile: long; // index 0x3
-	StageEnterEchelon02FixedEchelonId: long; // index 0x4
-	StageEnterEchelon02Starttile: long; // index 0x5
-	StageEnterEchelon03FixedEchelonId: long; // index 0x6
-	StageEnterEchelon03Starttile: long; // index 0x7
-	StageEnterEchelon04FixedEchelonId: long; // index 0x8
-	StageEnterEchelon04Starttile: long; // index 0x9
+	StageEnterEchelon01_FixedEchelonId: long; // index 0x2
+	StageEnterEchelon01_Starttile: long; // index 0x3
+	StageEnterEchelon02_FixedEchelonId: long; // index 0x4
+	StageEnterEchelon02_Starttile: long; // index 0x5
+	StageEnterEchelon03_FixedEchelonId: long; // index 0x6
+	StageEnterEchelon03_Starttile: long; // index 0x7
+	StageEnterEchelon04_FixedEchelonId: long; // index 0x8
+	StageEnterEchelon04_Starttile: long; // index 0x9
 }
 
 table FloaterCommonExcel {
@@ -2668,6 +2739,7 @@ table FloaterCommonExcel {
 	FloaterOffsetPosY: int; // index 0x4
 	FloaterRandomPosRangeX: int; // index 0x5
 	FloaterRandomPosRangeY: int; // index 0x6
+	LimitedFloaterRandomPosRangeY: int; // index 0x7
 }
 
 table FormationLocationExcel {
@@ -2716,10 +2788,10 @@ table FurnitureExcel {
 	EventCollectionId: long; // index 0x24
 	FurnitureBubbleOffsetX: long; // index 0x25
 	FurnitureBubbleOffsetY: long; // index 0x26
-	CafeCharacterStateReq: [string]; // index 0x27
-	CafeCharacterStateAdd: [string]; // index 0x28
-	CafeCharacterStateMake: [string]; // index 0x29
-	CafeCharacterStateOnly: [string]; // index 0x2A
+	CafeCharacterState_Req: [string]; // index 0x27
+	CafeCharacterState_Add: [string]; // index 0x28
+	CafeCharacterState_Make: [string]; // index 0x29
+	CafeCharacterState_Only: [string]; // index 0x2A
 	HideCraftShortcut: bool; // index 0x2B
 }
 
@@ -3238,7 +3310,7 @@ table ItemExcel {
 	CanTierUpgrade: bool; // index 0x14
 	TierUpgradeRecipeCraftId: long; // index 0x15
 	Tags: [FlatData.Tag]; // index 0x16
-	IsCollaboration: bool; // index 0x17
+	isCollaboration: bool; // index 0x17
 	CraftQualityTier0: long; // index 0x18
 	CraftQualityTier1: long; // index 0x19
 	CraftQualityTier2: long; // index 0x1A
@@ -3252,14 +3324,15 @@ table ItemExcel {
 	GachaTicket: FlatData.GachaTicketType; // index 0x22
 	AlertPopupId: long; // index 0x23
 	ShiftingCraftRecipe: long; // index 0x24
+	ShowContents: bool; // index 0x25
 }
 
 table KeyMappingExcel {
 	Id: string; // index 0x1
 	TargetKeyCode: string; // index 0x2
-	IsDisplay: bool; // index 0x3
-	IsUsed: bool; // index 0x4
-	IsLongPress: bool; // index 0x5
+	isDisplay: bool; // index 0x3
+	isUsed: bool; // index 0x4
+	isLongPress: bool; // index 0x5
 	IgnorePosCheck: bool; // index 0x6
 	IconPositionX: float; // index 0x7
 	IconPositionY: float; // index 0x8
@@ -3278,6 +3351,13 @@ table LevelExpMasterCoinExcel {
 	MinLevel: int; // index 0x2
 	MaxLevel: int; // index 0x3
 	Ratio: int; // index 0x4
+	ProductMonthlyId1: [long]; // index 0x5
+	PlusMasterCoinRatio1: long; // index 0x6
+	PlusMasterCoinIconName1: string; // index 0x7
+	ProductMonthlyId2: [long]; // index 0x8
+	PlusMasterCoinRatio2: long; // index 0x9
+	PlusMasterCoinIconName2: string; // index 0xA
+	PlusMasterCoinIconName3: string; // index 0xB
 }
 
 table LoadingImageExcel {
@@ -3340,7 +3420,7 @@ table LocalizeCharProfileExcel {
 
 table LocalizeCodeInBuildExcel {
 	Key: uint; // index 0x1
-	Kr: string; // index 0x2
+	kr: string; // index 0x2
 	Jp: string; // index 0x3
 }
 
@@ -3361,7 +3441,7 @@ table LocalizeEtcExcel {
 
 table LocalizeExcel {
 	Key: uint; // index 0x1
-	Kr: string; // index 0x2
+	kr: string; // index 0x2
 	Jp: string; // index 0x3
 }
 
@@ -3414,7 +3494,7 @@ table LocalizeSkillNewExcel {
 table LogicEffectCommonVisualExcel {
 	StringID: uint; // index 0x1
 	IconSpriteName: string; // index 0x2
-	IconDispelColor: [float]; // index 0x3
+	iconDispelColor: [float]; // index 0x3
 	ParticleEnterPath: string; // index 0x4
 	ParticleEnterSocket: FlatData.EffectBone; // index 0x5
 	ParticleLoopPath: string; // index 0x6
@@ -3558,9 +3638,9 @@ table MinigameCCGLevelStageExcel {
 	RewardCount: int; // index 0x9
 	RewardCardGroupId: long; // index 0xA
 	CardRarityGroupId: long; // index 0xB
-	IsSkipIntroScenario: bool; // index 0xC
+	isSkipIntroScenario: bool; // index 0xC
 	IntroScenarioGroupId: long; // index 0xD
-	IsSkipOutroScenario: bool; // index 0xE
+	isSkipOutroScenario: bool; // index 0xE
 	OutroScenarioGroupId: long; // index 0xF
 }
 
@@ -3647,12 +3727,12 @@ table MiniGameDefenseFixedStatExcel {
 	Grade: int; // index 0x3
 	ExSkillLevel: int; // index 0x4
 	NoneExSkillLevel: int; // index 0x5
-	Equipment1Tier: int; // index 0x6
-	Equipment1level: int; // index 0x7
-	Equipment2Tier: int; // index 0x8
-	Equipment2level: int; // index 0x9
-	Equipment3Tier: int; // index 0xA
-	Equipment3level: int; // index 0xB
+	Equipment1_Tier: int; // index 0x6
+	Equipment1_level: int; // index 0x7
+	Equipment2_Tier: int; // index 0x8
+	Equipment2_level: int; // index 0x9
+	Equipment3_Tier: int; // index 0xA
+	Equipment3_level: int; // index 0xB
 	CharacterWeaponGrade: int; // index 0xC
 	CharacterWeaponLevel: int; // index 0xD
 	CharacterGearTier: int; // index 0xE
@@ -3956,8 +4036,8 @@ table MinigameJankenVoiceExcel {
 	VoiceCondition: FlatData.JankenVoiceCondition; // index 0x5
 	AnimationName: string; // index 0x6
 	Duration: long; // index 0x7
-	LocalizeKR: string; // index 0x8
-	LocalizeJP: string; // index 0x9
+	Localize_KR: string; // index 0x8
+	Localize_JP: string; // index 0x9
 	VoiceId: uint; // index 0xA
 }
 
@@ -4466,7 +4546,7 @@ table ObstacleStatExcel {
 	ReduceWeakDamagedRate: long; // index 0x12
 	ReduceResistDamagedRate: long; // index 0x13
 	AddSummonedObstacleDamagedRatio: long; // index 0x14
-	DamagedRatioObstacle: long; // index 0x15
+	DamagedRatio_Obstacle: long; // index 0x15
 	WeakDamagedRatio: long; // index 0x16
 	EffectiveDamagedRatio: long; // index 0x17
 	NormalDamagedRatio: long; // index 0x18
@@ -4948,8 +5028,11 @@ table ScenarioContentCollectionExcel {
 	EmblemResource: string; // index 0x9
 	ThumbResource: string; // index 0xA
 	FullResource: string; // index 0xB
-	LocalizeEtcId: uint; // index 0xC
-	SubNameLocalizeCodeId: string; // index 0xD
+	FullResourcePosX: float; // index 0xC
+	FullResourcePosY: float; // index 0xD
+	FullResourceScale: float; // index 0xE
+	LocalizeEtcId: uint; // index 0xF
+	SubNameLocalizeCodeId: string; // index 0x10
 }
 
 table ScenarioEffectExcel {
@@ -5004,7 +5087,7 @@ table ScenarioModeExcel {
 	RecommendLevel: int; // index 0x23
 	EventIconParcelPath: string; // index 0x24
 	EventBannerTitle: uint; // index 0x25
-	Lof: bool; // index 0x26
+	lof: bool; // index 0x26
 	StageTopography: FlatData.StageTopography; // index 0x27
 	FixedEchelonId: long; // index 0x28
 	CompleteReportEventName: string; // index 0x29
@@ -5160,24 +5243,25 @@ table ShopCashExcel {
 	InMailPurchaseLock: bool; // index 0x6
 	UseMailParcel: bool; // index 0x7
 	IconPath: string; // index 0x8
-	DisplayOrder: long; // index 0x9
-	RenewalDisplayOrder: long; // index 0xA
-	ShopCashStepupId: long; // index 0xB
-	CategoryType: FlatData.ProductCategory; // index 0xC
-	DisplayTag: FlatData.ProductDisplayTag; // index 0xD
-	ProductSaleType: FlatData.ProductSaleType; // index 0xE
-	SalePeriodFrom: string; // index 0xF
-	SalePeriodTo: string; // index 0x10
-	ProductSaleDay: long; // index 0x11
-	ProductSaleMilliSeconds: long; // index 0x12
-	PeriodTag: bool; // index 0x13
-	AccountLevelLimit: long; // index 0x14
-	AccountLevelHide: bool; // index 0x15
-	ClearMissionLimit: long; // index 0x16
-	ClearMissionHide: bool; // index 0x17
-	PurchaseReportEventName: string; // index 0x18
-	RecommendIconPath: string; // index 0x19
-	RecommendPrefabPath: string; // index 0x1A
+	SubIconPath: string; // index 0x9
+	DisplayOrder: long; // index 0xA
+	RenewalDisplayOrder: long; // index 0xB
+	ShopCashStepupId: long; // index 0xC
+	CategoryType: FlatData.ProductCategory; // index 0xD
+	DisplayTag: FlatData.ProductDisplayTag; // index 0xE
+	ProductSaleType: FlatData.ProductSaleType; // index 0xF
+	SalePeriodFrom: string; // index 0x10
+	SalePeriodTo: string; // index 0x11
+	ProductSaleDay: long; // index 0x12
+	ProductSaleMilliSeconds: long; // index 0x13
+	PeriodTag: bool; // index 0x14
+	AccountLevelLimit: long; // index 0x15
+	AccountLevelHide: bool; // index 0x16
+	ClearMissionLimit: long; // index 0x17
+	ClearMissionHide: bool; // index 0x18
+	PurchaseReportEventName: string; // index 0x19
+	RecommendIconPath: string; // index 0x1A
+	RecommendPrefabPath: string; // index 0x1B
 }
 
 table ShopCashPromotionPopupExcel {
@@ -5306,18 +5390,18 @@ table ShopInfoExcel {
 	IsShopVisible: bool; // index 0x11
 	DisplayOrder: int; // index 0x12
 	ShopUpdateDate: int; // index 0x13
-	ShopUpdateGroupId1: int; // index 0x14
-	ShopUpdateGroupId2: int; // index 0x15
-	ShopUpdateGroupId3: int; // index 0x16
-	ShopUpdateGroupId4: int; // index 0x17
-	ShopUpdateGroupId5: int; // index 0x18
-	ShopUpdateGroupId6: int; // index 0x19
-	ShopUpdateGroupId7: int; // index 0x1A
-	ShopUpdateGroupId8: int; // index 0x1B
-	ShopUpdateGroupId9: int; // index 0x1C
-	ShopUpdateGroupId10: int; // index 0x1D
-	ShopUpdateGroupId11: int; // index 0x1E
-	ShopUpdateGroupId12: int; // index 0x1F
+	ShopUpdateGroupId_1: int; // index 0x14
+	ShopUpdateGroupId_2: int; // index 0x15
+	ShopUpdateGroupId_3: int; // index 0x16
+	ShopUpdateGroupId_4: int; // index 0x17
+	ShopUpdateGroupId_5: int; // index 0x18
+	ShopUpdateGroupId_6: int; // index 0x19
+	ShopUpdateGroupId_7: int; // index 0x1A
+	ShopUpdateGroupId_8: int; // index 0x1B
+	ShopUpdateGroupId_9: int; // index 0x1C
+	ShopUpdateGroupId_10: int; // index 0x1D
+	ShopUpdateGroupId_11: int; // index 0x1E
+	ShopUpdateGroupId_12: int; // index 0x1F
 }
 
 table ShopRecruitDirectingExcel {
@@ -5369,6 +5453,7 @@ table ShopRecruitExcel {
 	WishListConfig: FlatData.WishListConfig; // index 0x26
 	WishListHalfStackGachaGroupId: long; // index 0x27
 	WishListFullStackGachaGroupId: long; // index 0x28
+	RecruitSeason: long; // index 0x29
 }
 
 table ShopRecruitMileageExcel {
@@ -5664,24 +5749,26 @@ table TacticalRelayStageExcel {
 	PrevStageId: long; // index 0xD
 	GroundID: long; // index 0xE
 	StageTopography: FlatData.StageTopography; // index 0xF
-	StageEnterCostType: FlatData.ParcelType; // index 0x10
-	StageEnterCostId: long; // index 0x11
-	StageEnterCostAmount: int; // index 0x12
-	TacticRewardExp: long; // index 0x13
-	StageRewardIdEgo: long; // index 0x14
-	StageRewardIdConscious: long; // index 0x15
-	StageRewardIdUnconscious: long; // index 0x16
-	StageRewardLocalizePrefabId01: uint; // index 0x17
-	StageRewardLocalizePrefabId02: uint; // index 0x18
-	StageRewardLocalizePrefabId03: uint; // index 0x19
-	EchelonCount: int; // index 0x1A
-	ApcSlotDefineId: long; // index 0x1B
-	FavorCollectionScoreBonusId: long; // index 0x1C
-	EchelonExtensionType: FlatData.EchelonExtensionType; // index 0x1D
-	AssistSlot: int; // index 0x1E
-	StageHint: uint; // index 0x1F
-	WaveInfoTipIconPath: [string]; // index 0x20
-	WaveInfoTipLocalizeEtcId: [uint]; // index 0x21
+	EnemyArmorType: FlatData.ArmorType; // index 0x10
+	EnemySubArmorType: FlatData.ArmorType; // index 0x11
+	StageEnterCostType: FlatData.ParcelType; // index 0x12
+	StageEnterCostId: long; // index 0x13
+	StageEnterCostAmount: int; // index 0x14
+	TacticRewardExp: long; // index 0x15
+	StageRewardIdEgo: long; // index 0x16
+	StageRewardIdConscious: long; // index 0x17
+	StageRewardIdUnconscious: long; // index 0x18
+	StageRewardLocalizePrefabId01: uint; // index 0x19
+	StageRewardLocalizePrefabId02: uint; // index 0x1A
+	StageRewardLocalizePrefabId03: uint; // index 0x1B
+	EchelonCount: int; // index 0x1C
+	ApcSlotDefineId: long; // index 0x1D
+	FavorCollectionScoreBonusId: long; // index 0x1E
+	EchelonExtensionType: FlatData.EchelonExtensionType; // index 0x1F
+	AssistSlot: int; // index 0x20
+	StageHint: uint; // index 0x21
+	WaveInfoTipIconPath: [string]; // index 0x22
+	WaveInfoTipLocalizeEtcId: [uint]; // index 0x23
 }
 
 table TacticalRelayStageRewardExcel {
@@ -5816,8 +5903,8 @@ table TrophyCollectionExcel {
 table TutorialCharacterDialogExcel {
 	TalkId: long; // index 0x1
 	AnimationName: string; // index 0x2
-	LocalizeKR: string; // index 0x3
-	LocalizeJP: string; // index 0x4
+	Localize_KR: string; // index 0x3
+	Localize_JP: string; // index 0x4
 	VoiceId: uint; // index 0x5
 }
 

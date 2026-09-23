@@ -807,7 +807,9 @@ enum ScenarioCharacterAction : int {
 	FalldownRight = 4,
 	Stiff = 5,
 	Hophop = 6,
-	Jump = 7
+	Jump = 7,
+	FalldownLeftAuto = 8,
+	FalldownRightAuto = 9
 }
 
 enum DialogCategory : int {
@@ -4055,7 +4057,8 @@ enum Club : int {
 	NicomediasTroop = 55,
 	PublishingDepartment = 56,
 	FoxSquad = 57,
-	DivingClub = 58
+	DivingClub = 58,
+	Class183 = 59
 }
 
 enum School : int {
@@ -4161,7 +4164,9 @@ enum EchelonType : int {
 	TacticalRelayPierce = 29,
 	TacticalRelayMystic = 30,
 	TacticalRelaySonic = 31,
-	TacticalRelayChemical = 32
+	TacticalRelayChemical = 32,
+	WeekDungeonChaserD = 33,
+	WeekDungeonChaserE = 34
 }
 
 enum AssistRewardType : int {
@@ -4209,7 +4214,8 @@ enum MissionCategory : int {
 	DailySudden = 9,
 	DailyFixed = 10,
 	EventFixed = 11,
-	WelcomeMission = 12
+	WelcomeMission = 12,
+	CharacterAdaptationMission = 13
 }
 
 enum MissionResetType : int {
@@ -4551,6 +4557,14 @@ enum HexaUnitGrade : int {
 enum TacticEnvironment : int {
 	None = 0,
 	WarFog = 1
+}
+
+enum GrowthReturnType : int {
+	None = 0,
+	ExpItemReturn = 1,
+	ExpCreditReturn = 2,
+	EquipmentExpItemReturn = 3,
+	EquipmentCreditReturn = 4
 }
 
 enum ProductionStep : int {
@@ -5022,7 +5036,8 @@ enum RaidBossGroupType : int {
 	EN0006 = 11,
 	EN0010 = 12,
 	EN0013 = 13,
-	EN0022 = 14
+	EN0022 = 14,
+	EN0023 = 15
 }
 
 enum EmblemCategory : int {
@@ -5271,7 +5286,9 @@ enum WeekDungeonType : int {
 	ChaserB = 2,
 	ChaserC = 3,
 	FindGift = 4,
-	Blood = 5
+	Blood = 5,
+	ChaserD = 6,
+	ChaserE = 7
 }
 
 enum SchoolDungeonType : int {
@@ -6262,28 +6279,28 @@ enum MissionCompleteUIPrefabType : int {
 }
 
 table AnimationBlendTable {
-	DataList: [BlendData]; // index 0x1
+	dataList: [BlendData]; // index 0x1
 }
 
 table BlendData {
 	Type: int; // index 0x1
-	InfoList: [BlendInfo]; // index 0x2
+	infoList: [BlendInfo]; // index 0x2
 }
 
 table BlendInfo {
 	From: int; // index 0x1
 	To: int; // index 0x2
-	Blend: float; // index 0x3
+	blend: float; // index 0x3
 }
 
 table AnimatorDataTable {
-	DataList: [AnimatorData]; // index 0x1
+	dataList: [AnimatorData]; // index 0x1
 }
 
 table AnimatorData {
 	DefaultStateName: string; // index 0x1
 	Name: string; // index 0x2
-	DataList: [AniStateData]; // index 0x3
+	dataList: [AniStateData]; // index 0x3
 }
 
 table AniStateData {
@@ -6310,7 +6327,7 @@ table AniEventData {
 }
 
 table BattleExcelTable {
-	DataList: [BattleExcel]; // index 0x1
+	dataList: [BattleExcel]; // index 0x1
 }
 
 table BattleExcel {
@@ -6351,7 +6368,7 @@ table BattleExcel {
 }
 
 table BossPhaseExcelTable {
-	DataList: [BossPhaseExcel]; // index 0x1
+	dataList: [BossPhaseExcel]; // index 0x1
 }
 
 table BossPhaseExcel {
@@ -6362,7 +6379,7 @@ table BossPhaseExcel {
 }
 
 table BuffParticleExcelTable {
-	DataList: [BuffParticleExcel]; // index 0x1
+	dataList: [BuffParticleExcel]; // index 0x1
 }
 
 table BuffParticleExcel {
@@ -6374,7 +6391,7 @@ table BuffParticleExcel {
 }
 
 table CharacterDialogEmojiExcelTable {
-	DataList: [CharacterDialogEmojiExcel]; // index 0x1
+	dataList: [CharacterDialogEmojiExcel]; // index 0x1
 }
 
 table CharacterDialogEmojiExcel {
@@ -6383,12 +6400,12 @@ table CharacterDialogEmojiExcel {
 	DialogType: string; // index 0x3
 	Duration: long; // index 0x4
 	HideUI: bool; // index 0x5
-	LocalizeKR: string; // index 0x6
-	LocalizeJP: string; // index 0x7
+	Localize_KR: string; // index 0x6
+	Localize_JP: string; // index 0x7
 }
 
 table CharacterDialogFieldExcelTable {
-	DataList: [CharacterDialogFieldExcel]; // index 0x1
+	dataList: [CharacterDialogFieldExcel]; // index 0x1
 }
 
 table CharacterDialogFieldExcel {
@@ -6400,12 +6417,12 @@ table CharacterDialogFieldExcel {
 	MotionName: string; // index 0x6
 	IsInteractionDialog: bool; // index 0x7
 	HideUI: bool; // index 0x8
-	LocalizeKR: string; // index 0x9
-	LocalizeJP: string; // index 0xA
+	Localize_KR: string; // index 0x9
+	Localize_JP: string; // index 0xA
 }
 
 table ClearDeckRuleExcelTable {
-	DataList: [ClearDeckRuleExcel]; // index 0x1
+	dataList: [ClearDeckRuleExcel]; // index 0x1
 }
 
 table ClearDeckRuleExcel {
@@ -6414,7 +6431,7 @@ table ClearDeckRuleExcel {
 }
 
 table ConquestStepExcelTable {
-	DataList: [ConquestStepExcel]; // index 0x1
+	dataList: [ConquestStepExcel]; // index 0x1
 }
 
 table ConquestStepExcel {
@@ -6433,7 +6450,7 @@ table ConquestStepExcel {
 }
 
 table ConstArenaExcelTable {
-	DataList: [ConstArenaExcel]; // index 0x1
+	dataList: [ConstArenaExcel]; // index 0x1
 }
 
 table ConstArenaExcel {
@@ -6473,7 +6490,7 @@ table ConstArenaExcel {
 }
 
 table ConstAudioExcelTable {
-	DataList: [ConstAudioExcel]; // index 0x1
+	dataList: [ConstAudioExcel]; // index 0x1
 }
 
 table ConstAudioExcel {
@@ -6484,23 +6501,23 @@ table ConstAudioExcel {
 }
 
 table ConstCombatExcelTable {
-	DataList: [ConstCombatExcel]; // index 0x1
+	dataList: [ConstCombatExcel]; // index 0x1
 }
 
 table ConstCombatExcel {
 	SkillHandCount: int; // index 0x1
 	DyingTime: int; // index 0x2
 	BuffIconBlinkTime: int; // index 0x3
-	ShowBufficonEXSkill: bool; // index 0x4
-	ShowBufficonPassiveSkill: bool; // index 0x5
-	ShowBufficonExtraPassiveSkill: bool; // index 0x6
-	ShowBufficonLeaderSkill: bool; // index 0x7
-	ShowBufficonGroundPassiveSkill: bool; // index 0x8
-	ShowBufficonApcSynergyPassiveSkill: bool; // index 0x9
+	ShowBufficon_EXSkill: bool; // index 0x4
+	ShowBufficon_PassiveSkill: bool; // index 0x5
+	ShowBufficon_ExtraPassiveSkill: bool; // index 0x6
+	ShowBufficon_LeaderSkill: bool; // index 0x7
+	ShowBufficon_GroundPassiveSkill: bool; // index 0x8
+	ShowBufficon_ApcSynergyPassiveSkill: bool; // index 0x9
 	SuppliesConditionStringId: string; // index 0xA
-	PublicSpeechBubbleOffsetX: float; // index 0xB
-	PublicSpeechBubbleOffsetY: float; // index 0xC
-	PublicSpeechBubbleOffsetZ: float; // index 0xD
+	PublicSpeechBubbleOffset_X: float; // index 0xB
+	PublicSpeechBubbleOffset_Y: float; // index 0xC
+	PublicSpeechBubbleOffset_Z: float; // index 0xD
 	ShowRaidListCount: int; // index 0xE
 	MaxRaidTicketCount: long; // index 0xF
 	MaxRaidBossSkillSlot: long; // index 0x10
@@ -6583,7 +6600,7 @@ table ConstCombatExcel {
 }
 
 table ConstCommonExcelTable {
-	DataList: [ConstCommonExcel]; // index 0x1
+	dataList: [ConstCommonExcel]; // index 0x1
 }
 
 table ConstCommonExcel {
@@ -6591,7 +6608,7 @@ table ConstCommonExcel {
 }
 
 table ConstConquestExcelTable {
-	DataList: [ConstConquestExcel]; // index 0x1
+	dataList: [ConstConquestExcel]; // index 0x1
 }
 
 table ConstConquestExcel {
@@ -6604,7 +6621,7 @@ table ConstConquestExcel {
 }
 
 table ConstContentsExcelTable {
-	DataList: [ConstContentsExcel]; // index 0x1
+	dataList: [ConstContentsExcel]; // index 0x1
 }
 
 table ConstContentsExcel {
@@ -6615,7 +6632,7 @@ table ConstContentsExcel {
 }
 
 table ConstEventCommonExcelTable {
-	DataList: [ConstEventCommonExcel]; // index 0x1
+	dataList: [ConstEventCommonExcel]; // index 0x1
 }
 
 table ConstEventCommonExcel {
@@ -6636,7 +6653,7 @@ table ConstEventCommonExcel {
 }
 
 table ConstFieldExcelTable {
-	DataList: [ConstFieldExcel]; // index 0x1
+	dataList: [ConstFieldExcel]; // index 0x1
 }
 
 table ConstFieldExcel {
@@ -6648,7 +6665,7 @@ table ConstFieldExcel {
 }
 
 table ConstKeyMappingExcelTable {
-	DataList: [ConstKeyMappingExcel]; // index 0x1
+	dataList: [ConstKeyMappingExcel]; // index 0x1
 }
 
 table ConstKeyMappingExcel {
@@ -6672,7 +6689,7 @@ table ConstKeyMappingExcel {
 }
 
 table ConstMinigameCCGExcelTable {
-	DataList: [ConstMinigameCCGExcel]; // index 0x1
+	dataList: [ConstMinigameCCGExcel]; // index 0x1
 }
 
 table ConstMinigameCCGExcel {
@@ -6703,7 +6720,7 @@ table ConstMinigameCCGExcel {
 }
 
 table ConstMinigameJankenExcelTable {
-	DataList: [ConstMinigameJankenExcel]; // index 0x1
+	dataList: [ConstMinigameJankenExcel]; // index 0x1
 }
 
 table ConstMinigameJankenExcel {
@@ -6725,7 +6742,7 @@ table ConstMinigameJankenExcel {
 }
 
 table ConstMinigameRoadPuzzleExcelTable {
-	DataList: [ConstMinigameRoadPuzzleExcel]; // index 0x1
+	dataList: [ConstMinigameRoadPuzzleExcel]; // index 0x1
 }
 
 table ConstMinigameRoadPuzzleExcel {
@@ -6746,7 +6763,7 @@ table ConstMinigameRoadPuzzleExcel {
 }
 
 table ConstMiniGameShootingExcelTable {
-	DataList: [ConstMiniGameShootingExcel]; // index 0x1
+	dataList: [ConstMiniGameShootingExcel]; // index 0x1
 }
 
 table ConstMiniGameShootingExcel {
@@ -6765,7 +6782,7 @@ table ConstMiniGameShootingExcel {
 }
 
 table ConstMinigameTBGExcelTable {
-	DataList: [ConstMinigameTBGExcel]; // index 0x1
+	dataList: [ConstMinigameTBGExcel]; // index 0x1
 }
 
 table ConstMinigameTBGExcel {
@@ -6793,7 +6810,7 @@ table ConstMinigameTBGExcel {
 }
 
 table ConstNewbieContentExcelTable {
-	DataList: [ConstNewbieContentExcel]; // index 0x1
+	dataList: [ConstNewbieContentExcel]; // index 0x1
 }
 
 table ConstNewbieContentExcel {
@@ -6806,7 +6823,7 @@ table ConstNewbieContentExcel {
 }
 
 table ConstStrategyExcelTable {
-	DataList: [ConstStrategyExcel]; // index 0x1
+	dataList: [ConstStrategyExcel]; // index 0x1
 }
 
 table ConstStrategyExcel {
@@ -6838,7 +6855,7 @@ table ConstStrategyExcel {
 }
 
 table CouponStuffExcelTable {
-	DataList: [CouponStuffExcel]; // index 0x1
+	dataList: [CouponStuffExcel]; // index 0x1
 }
 
 table CouponStuffExcel {
@@ -6850,7 +6867,7 @@ table CouponStuffExcel {
 }
 
 table DefaultCharacterExcelTable {
-	DataList: [DefaultCharacterExcel]; // index 0x1
+	dataList: [DefaultCharacterExcel]; // index 0x1
 }
 
 table DefaultCharacterExcel {
@@ -6869,7 +6886,7 @@ table DefaultCharacterExcel {
 }
 
 table DefaultEchelonExcelTable {
-	DataList: [DefaultEchelonExcel]; // index 0x1
+	dataList: [DefaultEchelonExcel]; // index 0x1
 }
 
 table DefaultEchelonExcel {
@@ -6881,7 +6898,7 @@ table DefaultEchelonExcel {
 }
 
 table DefaultFurnitureExcelTable {
-	DataList: [DefaultFurnitureExcel]; // index 0x1
+	dataList: [DefaultFurnitureExcel]; // index 0x1
 }
 
 table DefaultFurnitureExcel {
@@ -6893,7 +6910,7 @@ table DefaultFurnitureExcel {
 }
 
 table DefaultMailExcelTable {
-	DataList: [DefaultMailExcel]; // index 0x1
+	dataList: [DefaultMailExcel]; // index 0x1
 }
 
 table DefaultMailExcel {
@@ -6908,7 +6925,7 @@ table DefaultMailExcel {
 }
 
 table DefaultParcelExcelTable {
-	DataList: [DefaultParcelExcel]; // index 0x1
+	dataList: [DefaultParcelExcel]; // index 0x1
 }
 
 table DefaultParcelExcel {
@@ -6918,7 +6935,7 @@ table DefaultParcelExcel {
 }
 
 table EmoticonSpecialExcelTable {
-	DataList: [EmoticonSpecialExcel]; // index 0x1
+	dataList: [EmoticonSpecialExcel]; // index 0x1
 }
 
 table EmoticonSpecialExcel {
@@ -6928,7 +6945,7 @@ table EmoticonSpecialExcel {
 }
 
 table EventContentBoxGachaElementExcelTable {
-	DataList: [EventContentBoxGachaElementExcel]; // index 0x1
+	dataList: [EventContentBoxGachaElementExcel]; // index 0x1
 }
 
 table EventContentBoxGachaElementExcel {
@@ -6939,7 +6956,7 @@ table EventContentBoxGachaElementExcel {
 }
 
 table EventContentExcelTable {
-	DataList: [EventContentExcel]; // index 0x1
+	dataList: [EventContentExcel]; // index 0x1
 }
 
 table EventContentExcel {
@@ -6950,7 +6967,7 @@ table EventContentExcel {
 }
 
 table FieldContentStageExcelTable {
-	DataList: [FieldContentStageExcel]; // index 0x1
+	dataList: [FieldContentStageExcel]; // index 0x1
 }
 
 table FieldContentStageExcel {
@@ -6978,7 +6995,7 @@ table FieldContentStageExcel {
 }
 
 table FieldContentStageRewardExcelTable {
-	DataList: [FieldContentStageRewardExcel]; // index 0x1
+	dataList: [FieldContentStageRewardExcel]; // index 0x1
 }
 
 table FieldContentStageRewardExcel {
@@ -6992,7 +7009,7 @@ table FieldContentStageRewardExcel {
 }
 
 table FieldCurtainCallFreeModeExcelTable {
-	DataList: [FieldCurtainCallFreeModeExcel]; // index 0x1
+	dataList: [FieldCurtainCallFreeModeExcel]; // index 0x1
 }
 
 table FieldCurtainCallFreeModeExcel {
@@ -7003,7 +7020,7 @@ table FieldCurtainCallFreeModeExcel {
 }
 
 table FieldDateExcelTable {
-	DataList: [FieldDateExcel]; // index 0x1
+	dataList: [FieldDateExcel]; // index 0x1
 }
 
 table FieldDateExcel {
@@ -7026,7 +7043,7 @@ table FieldDateExcel {
 }
 
 table FieldEvidenceExcelTable {
-	DataList: [FieldEvidenceExcel]; // index 0x1
+	dataList: [FieldEvidenceExcel]; // index 0x1
 }
 
 table FieldEvidenceExcel {
@@ -7039,7 +7056,7 @@ table FieldEvidenceExcel {
 }
 
 table FieldInteractionExcelTable {
-	DataList: [FieldInteractionExcel]; // index 0x1
+	dataList: [FieldInteractionExcel]; // index 0x1
 }
 
 table FieldInteractionExcel {
@@ -7060,7 +7077,7 @@ table FieldInteractionExcel {
 }
 
 table FieldKeywordExcelTable {
-	DataList: [FieldKeywordExcel]; // index 0x1
+	dataList: [FieldKeywordExcel]; // index 0x1
 }
 
 table FieldKeywordExcel {
@@ -7072,7 +7089,7 @@ table FieldKeywordExcel {
 }
 
 table FieldMasteryExcelTable {
-	DataList: [FieldMasteryExcel]; // index 0x1
+	dataList: [FieldMasteryExcel]; // index 0x1
 }
 
 table FieldMasteryExcel {
@@ -7088,7 +7105,7 @@ table FieldMasteryExcel {
 }
 
 table FieldMasteryLevelExcelTable {
-	DataList: [FieldMasteryLevelExcel]; // index 0x1
+	dataList: [FieldMasteryLevelExcel]; // index 0x1
 }
 
 table FieldMasteryLevelExcel {
@@ -7100,7 +7117,7 @@ table FieldMasteryLevelExcel {
 }
 
 table FieldMasteryManageExcelTable {
-	DataList: [FieldMasteryManageExcel]; // index 0x1
+	dataList: [FieldMasteryManageExcel]; // index 0x1
 }
 
 table FieldMasteryManageExcel {
@@ -7111,7 +7128,7 @@ table FieldMasteryManageExcel {
 }
 
 table FieldQuestExcelTable {
-	DataList: [FieldQuestExcel]; // index 0x1
+	dataList: [FieldQuestExcel]; // index 0x1
 }
 
 table FieldQuestExcel {
@@ -7129,7 +7146,7 @@ table FieldQuestExcel {
 }
 
 table FieldRewardExcelTable {
-	DataList: [FieldRewardExcel]; // index 0x1
+	dataList: [FieldRewardExcel]; // index 0x1
 }
 
 table FieldRewardExcel {
@@ -7141,7 +7158,7 @@ table FieldRewardExcel {
 }
 
 table FieldSceneExcelTable {
-	DataList: [FieldSceneExcel]; // index 0x1
+	dataList: [FieldSceneExcel]; // index 0x1
 }
 
 table FieldSceneExcel {
@@ -7160,7 +7177,7 @@ table FieldSceneExcel {
 }
 
 table FieldSeasonExcelTable {
-	DataList: [FieldSeasonExcel]; // index 0x1
+	dataList: [FieldSeasonExcel]; // index 0x1
 }
 
 table FieldSeasonExcel {
@@ -7180,7 +7197,7 @@ table FieldSeasonExcel {
 }
 
 table FieldStoryStageExcelTable {
-	DataList: [FieldStoryStageExcel]; // index 0x1
+	dataList: [FieldStoryStageExcel]; // index 0x1
 }
 
 table FieldStoryStageExcel {
@@ -7197,7 +7214,7 @@ table FieldStoryStageExcel {
 }
 
 table FieldTutorialExcelTable {
-	DataList: [FieldTutorialExcel]; // index 0x1
+	dataList: [FieldTutorialExcel]; // index 0x1
 }
 
 table FieldTutorialExcel {
@@ -7208,7 +7225,7 @@ table FieldTutorialExcel {
 }
 
 table FieldWorldMapZoneExcelTable {
-	DataList: [FieldWorldMapZoneExcel]; // index 0x1
+	dataList: [FieldWorldMapZoneExcel]; // index 0x1
 }
 
 table FieldWorldMapZoneExcel {
@@ -7227,7 +7244,7 @@ table FieldWorldMapZoneExcel {
 }
 
 table GachaSelectPickupGroupExcelTable {
-	DataList: [GachaSelectPickupGroupExcel]; // index 0x1
+	dataList: [GachaSelectPickupGroupExcel]; // index 0x1
 }
 
 table GachaSelectPickupGroupExcel {
@@ -7261,7 +7278,7 @@ table GroundNodeLayerFlat {
 }
 
 table IAWorldRaidSkillDescriptionListExcelTable {
-	DataList: [IAWorldRaidSkillDescriptionListExcel]; // index 0x1
+	dataList: [IAWorldRaidSkillDescriptionListExcel]; // index 0x1
 }
 
 table IAWorldRaidSkillDescriptionListExcel {
@@ -7274,7 +7291,7 @@ table IAWorldRaidSkillDescriptionListExcel {
 }
 
 table KnockBackExcelTable {
-	DataList: [KnockBackExcel]; // index 0x1
+	dataList: [KnockBackExcel]; // index 0x1
 }
 
 table KnockBackExcel {
@@ -7284,7 +7301,7 @@ table KnockBackExcel {
 }
 
 table LimitedStageExcelTable {
-	DataList: [LimitedStageExcel]; // index 0x1
+	dataList: [LimitedStageExcel]; // index 0x1
 }
 
 table LimitedStageExcel {
@@ -7323,7 +7340,7 @@ table LimitedStageExcel {
 }
 
 table LimitedStageRewardExcelTable {
-	DataList: [LimitedStageRewardExcel]; // index 0x1
+	dataList: [LimitedStageRewardExcel]; // index 0x1
 }
 
 table LimitedStageRewardExcel {
@@ -7337,7 +7354,7 @@ table LimitedStageRewardExcel {
 }
 
 table LimitedStageSeasonExcelTable {
-	DataList: [LimitedStageSeasonExcel]; // index 0x1
+	dataList: [LimitedStageSeasonExcel]; // index 0x1
 }
 
 table LimitedStageSeasonExcel {
@@ -7350,17 +7367,17 @@ table LimitedStageSeasonExcel {
 }
 
 table LocalizeCCGExcelTable {
-	DataList: [LocalizeCCGExcel]; // index 0x1
+	dataList: [LocalizeCCGExcel]; // index 0x1
 }
 
 table LocalizeCCGExcel {
 	Key: uint; // index 0x1
-	Kr: string; // index 0x2
+	kr: string; // index 0x2
 	Jp: string; // index 0x3
 }
 
 table LocalizeFieldExcelTable {
-	DataList: [LocalizeFieldExcel]; // index 0x1
+	dataList: [LocalizeFieldExcel]; // index 0x1
 }
 
 table LocalizeFieldExcel {
@@ -7370,27 +7387,27 @@ table LocalizeFieldExcel {
 }
 
 table LocalizeKeyMappingExcelTable {
-	DataList: [LocalizeKeyMappingExcel]; // index 0x1
+	dataList: [LocalizeKeyMappingExcel]; // index 0x1
 }
 
 table LocalizeKeyMappingExcel {
 	Key: uint; // index 0x1
-	Kr: string; // index 0x2
+	kr: string; // index 0x2
 	Jp: string; // index 0x3
 }
 
 table LocalizeSNSExcelTable {
-	DataList: [LocalizeSNSExcel]; // index 0x1
+	dataList: [LocalizeSNSExcel]; // index 0x1
 }
 
 table LocalizeSNSExcel {
 	Key: uint; // index 0x1
-	Kr: string; // index 0x2
+	kr: string; // index 0x2
 	Jp: string; // index 0x3
 }
 
 table MinigameCardExcelTable {
-	DataList: [MinigameCardExcel]; // index 0x1
+	dataList: [MinigameCardExcel]; // index 0x1
 }
 
 table MinigameCardExcel {
@@ -7398,7 +7415,7 @@ table MinigameCardExcel {
 }
 
 table MinigameRoadExcelTable {
-	DataList: [MinigameRoadExcel]; // index 0x1
+	dataList: [MinigameRoadExcel]; // index 0x1
 }
 
 table MinigameRoadExcel {
@@ -7406,7 +7423,7 @@ table MinigameRoadExcel {
 }
 
 table NormalSkillTemplateExcelTable {
-	DataList: [NormalSkillTemplateExcel]; // index 0x1
+	dataList: [NormalSkillTemplateExcel]; // index 0x1
 }
 
 table NormalSkillTemplateExcel {
@@ -7417,7 +7434,7 @@ table NormalSkillTemplateExcel {
 }
 
 table ObstacleExcelTable {
-	DataList: [ObstacleExcel]; // index 0x1
+	dataList: [ObstacleExcel]; // index 0x1
 }
 
 table ObstacleExcel {
@@ -7456,7 +7473,7 @@ table PropRootMotionFlat {
 }
 
 table ProtocolSettingExcelTable {
-	DataList: [ProtocolSettingExcel]; // index 0x1
+	dataList: [ProtocolSettingExcel]; // index 0x1
 }
 
 table ProtocolSettingExcel {
@@ -7468,7 +7485,7 @@ table ProtocolSettingExcel {
 }
 
 table RecipeCraftExcelTable {
-	DataList: [RecipeCraftExcel]; // index 0x1
+	dataList: [RecipeCraftExcel]; // index 0x1
 }
 
 table RecipeCraftExcel {
@@ -7513,7 +7530,7 @@ table RootMotionFlat {
 }
 
 table ScenarioExcelTable {
-	DataList: [ScenarioExcel]; // index 0x1
+	dataList: [ScenarioExcel]; // index 0x1
 }
 
 table ScenarioExcel {
@@ -7529,7 +7546,7 @@ table ScenarioExcel {
 }
 
 table ScenarioReplayExcelTable {
-	DataList: [ScenarioReplayExcel]; // index 0x1
+	dataList: [ScenarioReplayExcel]; // index 0x1
 }
 
 table ScenarioReplayExcel {
@@ -7545,7 +7562,7 @@ table ScenarioReplayExcel {
 }
 
 table ScenarioScriptField1ExcelTable {
-	DataList: [ScenarioScriptField1Excel]; // index 0x1
+	dataList: [ScenarioScriptField1Excel]; // index 0x1
 }
 
 table ScenarioScriptField1Excel {
@@ -7563,7 +7580,7 @@ table ScenarioScriptField1Excel {
 }
 
 table SpecialLobbyIllustExcelTable {
-	DataList: [SpecialLobbyIllustExcel]; // index 0x1
+	dataList: [SpecialLobbyIllustExcel]; // index 0x1
 }
 
 table SpecialLobbyIllustExcel {
@@ -7576,17 +7593,17 @@ table SpecialLobbyIllustExcel {
 }
 
 table StringTestExcelTable {
-	DataList: [StringTestExcel]; // index 0x1
+	dataList: [StringTestExcel]; // index 0x1
 }
 
 table StringTestExcel {
-	String: [string]; // index 0x1
-	Sentence1: string; // index 0x2
+	string: [string]; // index 0x1
+	sentence1: string; // index 0x2
 	Script: string; // index 0x3
 }
 
 table SystemMailExcelTable {
-	DataList: [SystemMailExcel]; // index 0x1
+	dataList: [SystemMailExcel]; // index 0x1
 }
 
 table SystemMailExcel {
@@ -7599,7 +7616,7 @@ table SystemMailExcel {
 }
 
 table TacticArenaSimulatorSettingExcelTable {
-	DataList: [TacticArenaSimulatorSettingExcel]; // index 0x1
+	dataList: [TacticArenaSimulatorSettingExcel]; // index 0x1
 }
 
 table TacticArenaSimulatorSettingExcel {
@@ -7621,7 +7638,7 @@ table TacticArenaSimulatorSettingExcel {
 }
 
 table TacticDamageSimulatorSettingExcelTable {
-	DataList: [TacticDamageSimulatorSettingExcel]; // index 0x1
+	dataList: [TacticDamageSimulatorSettingExcel]; // index 0x1
 }
 
 table TacticDamageSimulatorSettingExcel {
@@ -7645,7 +7662,7 @@ table TacticDamageSimulatorSettingExcel {
 }
 
 table TacticSimulatorSettingExcelTable {
-	DataList: [TacticSimulatorSettingExcel]; // index 0x1
+	dataList: [TacticSimulatorSettingExcel]; // index 0x1
 }
 
 table TacticSimulatorSettingExcel {
@@ -7654,7 +7671,7 @@ table TacticSimulatorSettingExcel {
 }
 
 table TacticTimeAttackSimulatorConfigExcelTable {
-	DataList: [TacticTimeAttackSimulatorConfigExcel]; // index 0x1
+	dataList: [TacticTimeAttackSimulatorConfigExcel]; // index 0x1
 }
 
 table TacticTimeAttackSimulatorConfigExcel {
@@ -7667,7 +7684,7 @@ table TacticTimeAttackSimulatorConfigExcel {
 }
 
 table TagExcelTable {
-	DataList: [TagExcel]; // index 0x1
+	dataList: [TagExcel]; // index 0x1
 }
 
 table TagExcel {
@@ -7676,7 +7693,7 @@ table TagExcel {
 }
 
 table TranscendenceRecipeExcelTable {
-	DataList: [TranscendenceRecipeExcel]; // index 0x1
+	dataList: [TranscendenceRecipeExcel]; // index 0x1
 }
 
 table TranscendenceRecipeExcel {
@@ -7690,7 +7707,7 @@ table TranscendenceRecipeExcel {
 }
 
 table WeekDungeonFindGiftRewardExcelTable {
-	DataList: [WeekDungeonFindGiftRewardExcel]; // index 0x1
+	dataList: [WeekDungeonFindGiftRewardExcel]; // index 0x1
 }
 
 table WeekDungeonFindGiftRewardExcel {
