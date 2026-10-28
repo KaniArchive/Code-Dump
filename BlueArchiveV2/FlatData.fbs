@@ -381,7 +381,8 @@ enum ParcelType : int {
 	ProductSelect = 28,
 	SNSPost = 29,
 	ProductDailyRecord = 30,
-	StudentFrame = 31
+	StudentFrame = 31,
+	ProductStreakRecord = 32
 }
 
 enum StatType : int {
@@ -489,6 +490,17 @@ enum StatType : int {
 	Max = 101
 }
 
+enum Difficulty : int {
+	Normal = 0,
+	Hard = 1,
+	VeryHard = 2,
+	Hardcore = 3,
+	Extreme = 4,
+	Insane = 5,
+	Torment = 6,
+	Lunatic = 7
+}
+
 enum Rarity : int {
 	N = 0,
 	R = 1,
@@ -588,7 +600,9 @@ enum StarGoalType : int {
 	ClearTimeInSec = 4,
 	AllyBaseDamage = 5,
 	UsedTurn = 6,
-	LeftHitPoint = 7
+	LeftHitPoint = 7,
+	GetScore = 8,
+	HitCount = 9
 }
 
 enum RewardTag : int {
@@ -774,7 +788,8 @@ enum OpenConditionContent : int {
 	PermanentRaid = 60,
 	MinigameJanken = 61,
 	TacticalRelay = 62,
-	Engrave = 63
+	Engrave = 63,
+	MiniGameTank = 64
 }
 
 enum RecipeType : int {
@@ -4427,7 +4442,13 @@ enum MissionCompleteConditionType : int {
 	Reset_JankenGetSpecificScore = 192,
 	Reset_SpecificTacticalRelayWaveClear = 193,
 	Achieve_ClearTacticalRelayCount = 194,
-	Achieve_EngraveLevelUpCount = 195
+	Achieve_EngraveLevelUpCount = 195,
+	Reset_TankRacingClearCount = 196,
+	Reset_TankRacingUpgradeTierCheck = 197,
+	Reset_ClearSpecificTankRacingStage = 198,
+	Reset_ClearSpecificCampaignStageWithAdaptationCount = 199,
+	Reset_ClearSpecificPermanentRaidCount = 200,
+	Reset_CharacterAtSpecificSkillLevelReachCount = 201
 }
 
 enum Nation : int {
@@ -4500,7 +4521,9 @@ enum ShopCategoryType : int {
 	GemWeekly = 37,
 	CafeSummonTicket = 38,
 	SelectPickupFesGacha = 39,
-	SelectPickupLimitedGacha = 40
+	SelectPickupLimitedGacha = 40,
+	UnownedTicketGacha = 41,
+	TacticalRelayBeta = 42
 }
 
 enum BubbleType : int {
@@ -4830,17 +4853,6 @@ enum EquipmentOptionType : int {
 	AddDamageRatioSynergyBulletType_Base = 102
 }
 
-enum Difficulty : int {
-	Normal = 0,
-	Hard = 1,
-	VeryHard = 2,
-	Hardcore = 3,
-	Extreme = 4,
-	Insane = 5,
-	Torment = 6,
-	Lunatic = 7
-}
-
 enum PotentialStatBonusRateType : int {
 	None = 0,
 	MaxHP = 1,
@@ -5018,7 +5030,8 @@ enum ItemCategory : int {
 	InvisibleToken = 8,
 	BattlePass = 9,
 	ProductSelect = 10,
-	ProductDailyRecord = 11
+	ProductDailyRecord = 11,
+	ProductStreakRecord = 12
 }
 
 enum RaidBossGroupType : int {
@@ -5069,6 +5082,12 @@ enum EmblemCheckPassType : int {
 	Favor = 2,
 	Story = 3,
 	Potential = 4
+}
+
+enum EngraveNodeType : int {
+	None = 0,
+	Normal = 1,
+	Special = 2
 }
 
 enum NodeGrade : int {
@@ -5213,7 +5232,8 @@ enum EventContentType : int {
 	Concentration = 41,
 	InteractiveWorldRaid = 42,
 	ClueSearch = 43,
-	MinigameJanken = 44
+	MinigameJanken = 44,
+	MiniGameTank = 45
 }
 
 enum MeetupConditionType : int {
@@ -5361,7 +5381,12 @@ enum GachaTicketType : int {
 	PackageThreeStar_R88_Explosion = 13,
 	PackageThreeStar_R88_Mystic = 14,
 	PackageThreeStar_R88_Pierce = 15,
-	PackageThreeStar_R88_Sonic = 16
+	PackageThreeStar_R88_Sonic = 16,
+	PackageUnownedThreeStar = 17,
+	PackageThreeStar_R97_Explosion = 18,
+	PackageThreeStar_R97_Mystic = 19,
+	PackageThreeStar_R97_Pierce = 20,
+	PackageThreeStar_R97_Sonic = 21
 }
 
 enum CraftNodeTier : int {
@@ -5476,6 +5501,17 @@ enum WebAPIErrorLevel : int {
 	None = 0,
 	Warning = 1,
 	Error = 2
+}
+
+enum LogicEffectCategory : int {
+	None = 0,
+	Attack = 1,
+	Heal = 2,
+	Buff = 3,
+	Debuff = 4,
+	CrowdControl = 5,
+	Boss = 6,
+	Dummy = 7
 }
 
 enum EffectBone : int {
@@ -5687,6 +5723,43 @@ enum Geas : int {
 	Evasion = 13
 }
 
+enum TankRacingItemType : int {
+	None = 0,
+	Fuel = 1,
+	Dash = 2
+}
+
+enum TankRacingObstacleType : int {
+	None = 0,
+	Fixed = 1,
+	Falling = 2
+}
+
+enum TankRacingStageType : int {
+	None = 0,
+	Racing = 1,
+	Boss = 2,
+	Free = 3
+}
+
+enum TankRacingVoiceCondition : int {
+	None = 0,
+	CharacterSelect = 1,
+	MiniGameStart = 2,
+	DashItemGet = 3,
+	EtcItemGet = 4,
+	GunFire = 5,
+	Combo = 6,
+	BossSkill = 7,
+	UpgradeSelect = 8
+}
+
+enum TankRacingChatBubbleType : int {
+	None = 0,
+	Normal = 1,
+	Dynamic = 2
+}
+
 enum TBGProbModifyCondition : int {
 	None = 0,
 	AllyRevive = 1,
@@ -5884,7 +5957,8 @@ enum PurchaseSourceType : int {
 	ProductSelect = 4,
 	ProductGooglePoint = 5,
 	ProductDailyRecord = 6,
-	ProductStreakRecord = 7
+	ProductStreakRecord = 7,
+	ProductPickupPackage_UseGlobal = 8
 }
 
 enum ProductCategory : int {
@@ -6033,7 +6107,8 @@ enum GachaDisplayTag : int {
 	LimitedThreeStar = 8,
 	Revival = 9,
 	SelectLimited = 10,
-	NewbieDateLimited = 11
+	NewbieDateLimited = 11,
+	Unowned = 12
 }
 
 enum WishListConfig : int {
@@ -6059,7 +6134,8 @@ enum ShopGroupType : int {
 	TimeAttack = 7,
 	EliminateRaid = 8,
 	Gem = 9,
-	Chaser = 10
+	Chaser = 10,
+	TacticalRelayBeta = 11
 }
 
 enum ShortcutContentType : int {
@@ -6078,6 +6154,18 @@ enum ShortcutContentType : int {
 	Mission = 12,
 	MultiFloorRaid = 13,
 	TacticalRelay = 14
+}
+
+enum SkillDamagedTargetCountingRule : int {
+	None = 0,
+	SingleTarget = 1,
+	MultiTarget = 2
+}
+
+enum SkillKind : int {
+	Normal = 0,
+	SelectableChild = 1,
+	CardChangeOnly = 2
 }
 
 enum StickerGetConditionType : int {
@@ -6629,6 +6717,12 @@ table ConstContentsExcel {
 	SearchUpdateTime: float; // index 0x1
 	LobbyDayTimeFrom: int; // index 0x2
 	LobbyNightTimeFrom: int; // index 0x3
+	CharacterUsageRaidRecentSeason: int; // index 0x4
+	CharacterUsageEliminateRaidRecentSeason: int; // index 0x5
+	CharacterUsageMinSampleDifficulty: Difficulty; // index 0x6
+	CharacterUsageMinAccountSampleCount: int; // index 0x7
+	CharacterUsageRawDataRetentionInDays: int; // index 0x8
+	CharacterUsageAggregateCycleInHours: int; // index 0x9
 }
 
 table ConstEventCommonExcelTable {
@@ -6779,6 +6873,31 @@ table ConstMiniGameShootingExcel {
 	SpawnEffectPath: string; // index 0x9
 	WaitTimeAfterSpawn: float; // index 0xA
 	FreeGearInterval: int; // index 0xB
+}
+
+table ConstMiniGameTankExcelTable {
+	dataList: [ConstMiniGameTankExcel]; // index 0x0
+}
+
+table ConstMiniGameTankExcel {
+	StartCountDuration: long; // index 0x0
+	PerfectStartDuration: long; // index 0x1
+	FirstPatternTriggerOffset: long; // index 0x2
+	RivalSpawnOffset: long; // index 0x3
+	BossSpawnOffset: long; // index 0x4
+	AppearSurplusSpeed: long; // index 0x5
+	DistanceToPlayer: long; // index 0x6
+	DisappearAccelerateValue: long; // index 0x7
+	DisappearDuration: long; // index 0x8
+	AdjustAccelerateTime: long; // index 0x9
+	ObstacleCheckInterval: long; // index 0xA
+	ProjectileSpeed: long; // index 0xB
+	ProjectileExtinctTime: long; // index 0xC
+	BossStageSpeed: long; // index 0xD
+	ComboVoicePlayInterval: int; // index 0xE
+	SpeedEffectThreshold1: long; // index 0xF
+	SpeedEffectThreshold2: long; // index 0x10
+	SpeedVisualMultiplier: float; // index 0x11
 }
 
 table ConstMinigameTBGExcelTable {
