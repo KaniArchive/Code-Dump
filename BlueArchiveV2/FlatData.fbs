@@ -589,7 +589,8 @@ enum MailType : int {
 	ExpiryProductDailyRecordItem = 35,
 	ExpiryStreakRecordItem = 36,
 	ExpirySeasonRecordItem = 37,
-	PaymentCenterStreakRecord = 38
+	PaymentCenterStreakRecord = 38,
+	ExpiryGlobalAttendanceItem = 39
 }
 
 enum StarGoalType : int {
@@ -995,7 +996,8 @@ enum ScenarioContentType : int {
 	MiniEvent = 14,
 	EliminateRaid = 15,
 	MultiFloorRaid = 16,
-	EventContentPermanent = 17
+	EventContentPermanent = 17,
+	Engrave = 18
 }
 
 enum ScenarioModeReplayTypes : int {
@@ -4073,7 +4075,8 @@ enum Club : int {
 	PublishingDepartment = 56,
 	FoxSquad = 57,
 	DivingClub = 58,
-	Class183 = 59
+	Class183 = 59,
+	AssemblyOfArts = 60
 }
 
 enum School : int {
@@ -4214,6 +4217,14 @@ enum AttendanceCountRule : int {
 enum AttendanceResetType : int {
 	User = 0,
 	Server = 1
+}
+
+enum Nation : int {
+	None = 0,
+	All = 1,
+	JP = 2,
+	GL = 3,
+	KR = 4
 }
 
 enum MissionCategory : int {
@@ -4448,15 +4459,8 @@ enum MissionCompleteConditionType : int {
 	Reset_ClearSpecificTankRacingStage = 198,
 	Reset_ClearSpecificCampaignStageWithAdaptationCount = 199,
 	Reset_ClearSpecificPermanentRaidCount = 200,
-	Reset_CharacterAtSpecificSkillLevelReachCount = 201
-}
-
-enum Nation : int {
-	None = 0,
-	All = 1,
-	JP = 2,
-	GL = 3,
-	KR = 4
+	Reset_CharacterAtSpecificSkillLevelReachCount = 201,
+	Achieve_VoiceMailListenCount = 202
 }
 
 enum ExternalBTTrigger : int {
@@ -4962,6 +4966,14 @@ enum ConquestTeamType : int {
 	Team3 = 3
 }
 
+enum AccountState : int {
+	WaitingSignIn = 0,
+	Normal = 1,
+	Dormant = 2,
+	Comeback = 3,
+	Newbie = 4
+}
+
 enum FeverBattleType : int {
 	Campaign = 0,
 	Raid = 1,
@@ -4984,14 +4996,6 @@ enum ScenarioModeSubTypes : int {
 	Club = 1,
 	Series1 = 2,
 	Series2 = 3
-}
-
-enum AccountState : int {
-	WaitingSignIn = 0,
-	Normal = 1,
-	Dormant = 2,
-	Comeback = 3,
-	Newbie = 4
 }
 
 enum CurrencyOverChargeType : int {
@@ -5066,7 +5070,8 @@ enum EmblemCategory : int {
 	Etc_Anniversary = 9,
 	MultiFloorRaid = 10,
 	Potential = 11,
-	BattlePass = 12
+	BattlePass = 12,
+	PermanentMiniGame = 13
 }
 
 enum EmblemDisplayType : int {
@@ -5082,6 +5087,12 @@ enum EmblemCheckPassType : int {
 	Favor = 2,
 	Story = 3,
 	Potential = 4
+}
+
+enum EngraveStage : int {
+	Talent = 0,
+	InnerPsyche = 1,
+	Inherent = 2
 }
 
 enum EngraveNodeType : int {
@@ -5290,7 +5301,8 @@ enum EventContentReleaseType : int {
 	Permanent = 1,
 	MainStory = 2,
 	PermanentSpecialOperate = 3,
-	PermanentConquest = 4
+	PermanentConquest = 4,
+	PermanentMiniGame = 5
 }
 
 enum PurchaseCountResetType : int {
@@ -5361,7 +5373,8 @@ enum FurnitureFunctionType : int {
 	EventCollection = 1,
 	VideoPlay = 2,
 	TrophyCollection = 3,
-	InteractionBGMPlay = 4
+	InteractionBGMPlay = 4,
+	MiniGamePlay = 5
 }
 
 enum GachaTicketType : int {
@@ -5536,7 +5549,8 @@ enum MessagePopupLayout : int {
 	TextOnly = 0,
 	ImageBig = 1,
 	ImageSmall = 2,
-	UnlockCondition = 3
+	UnlockCondition = 3,
+	CheckConfirm = 4
 }
 
 enum MessagePopupImagePositionType : int {
@@ -5548,6 +5562,125 @@ enum MessagePopupButtonType : int {
 	Accept = 0,
 	Cancel = 1,
 	Command = 2
+}
+
+enum DreamMakerParameterType : int {
+	None = 0,
+	Param01 = 1,
+	Param02 = 2,
+	Param03 = 3,
+	Param04 = 4
+}
+
+enum DreamMakerEndingType : int {
+	None = 0,
+	Normal = 1,
+	Special = 2
+}
+
+enum DreamMakerEndingCondition : int {
+	None = 0,
+	Param01 = 1,
+	Param02 = 2,
+	Param03 = 3,
+	Param04 = 4,
+	Round = 5,
+	CollectionCount = 6
+}
+
+enum DreamMakerEndingRewardType : int {
+	None = 0,
+	FirstEndingReward = 1,
+	LoopEndingReward = 2
+}
+
+enum DreamMakerMultiplierCondition : int {
+	None = 0,
+	Round = 1,
+	CollectionCount = 2,
+	EndingCount = 3
+}
+
+enum DreamMakerResult : int {
+	None = 0,
+	Fail = 1,
+	Success = 2,
+	Perfect = 3
+}
+
+enum DreamMakerParamOperationType : int {
+	None = 0,
+	GrowUpHigh = 1,
+	GrowUp = 2,
+	GrowDownHigh = 3,
+	GrowDown = 4
+}
+
+enum RoadPuzzleVoiceCondition : int {
+	None = 0,
+	TrainDepart = 1,
+	RailConnectSuccess = 2,
+	SaveSuccess = 3
+}
+
+enum Geas : int {
+	ForwardProjectile = 0,
+	DiagonalProjectile = 1,
+	SideProjectile = 2,
+	Pierce = 3,
+	Reflect = 4,
+	Burn = 5,
+	Chill = 6,
+	AttackPower = 7,
+	AttackSpeed = 8,
+	Critical = 9,
+	Heal = 10,
+	MoveSpeed = 11,
+	LifeSteal = 12,
+	Evasion = 13
+}
+
+enum MiniGameTBGThemaRewardType : int {
+	TreasureReward = 0,
+	EmptyTreasureReward = 1,
+	HiddenThemaTreasureReward = 2
+}
+
+enum TankRacingItemType : int {
+	None = 0,
+	Fuel = 1,
+	Dash = 2
+}
+
+enum TankRacingObstacleType : int {
+	None = 0,
+	Fixed = 1,
+	Falling = 2
+}
+
+enum TankRacingStageType : int {
+	None = 0,
+	Racing = 1,
+	Boss = 2,
+	Free = 3
+}
+
+enum TankRacingVoiceCondition : int {
+	None = 0,
+	CharacterSelect = 1,
+	MiniGameStart = 2,
+	DashItemGet = 3,
+	EtcItemGet = 4,
+	GunFire = 5,
+	Combo = 6,
+	BossSkill = 7,
+	UpgradeSelect = 8
+}
+
+enum TankRacingChatBubbleType : int {
+	None = 0,
+	Normal = 1,
+	Dynamic = 2
 }
 
 enum CCGCardType : int {
@@ -5614,58 +5747,6 @@ enum CCGEntityType : int {
 	Card = 2
 }
 
-enum DreamMakerParameterType : int {
-	None = 0,
-	Param01 = 1,
-	Param02 = 2,
-	Param03 = 3,
-	Param04 = 4
-}
-
-enum DreamMakerEndingType : int {
-	None = 0,
-	Normal = 1,
-	Special = 2
-}
-
-enum DreamMakerEndingCondition : int {
-	None = 0,
-	Param01 = 1,
-	Param02 = 2,
-	Param03 = 3,
-	Param04 = 4,
-	Round = 5,
-	CollectionCount = 6
-}
-
-enum DreamMakerEndingRewardType : int {
-	None = 0,
-	FirstEndingReward = 1,
-	LoopEndingReward = 2
-}
-
-enum DreamMakerMultiplierCondition : int {
-	None = 0,
-	Round = 1,
-	CollectionCount = 2,
-	EndingCount = 3
-}
-
-enum DreamMakerResult : int {
-	None = 0,
-	Fail = 1,
-	Success = 2,
-	Perfect = 3
-}
-
-enum DreamMakerParamOperationType : int {
-	None = 0,
-	GrowUpHigh = 1,
-	GrowUp = 2,
-	GrowDownHigh = 3,
-	GrowDown = 4
-}
-
 enum DreamMakerVoiceCondition : int {
 	None = 0,
 	Fail = 1,
@@ -5697,67 +5778,6 @@ enum RoadPuzzleRailTileType : int {
 	Straight = 1,
 	CurveBig = 2,
 	CurveSmall = 3
-}
-
-enum RoadPuzzleVoiceCondition : int {
-	None = 0,
-	TrainDepart = 1,
-	RailConnectSuccess = 2,
-	SaveSuccess = 3
-}
-
-enum Geas : int {
-	ForwardProjectile = 0,
-	DiagonalProjectile = 1,
-	SideProjectile = 2,
-	Pierce = 3,
-	Reflect = 4,
-	Burn = 5,
-	Chill = 6,
-	AttackPower = 7,
-	AttackSpeed = 8,
-	Critical = 9,
-	Heal = 10,
-	MoveSpeed = 11,
-	LifeSteal = 12,
-	Evasion = 13
-}
-
-enum TankRacingItemType : int {
-	None = 0,
-	Fuel = 1,
-	Dash = 2
-}
-
-enum TankRacingObstacleType : int {
-	None = 0,
-	Fixed = 1,
-	Falling = 2
-}
-
-enum TankRacingStageType : int {
-	None = 0,
-	Racing = 1,
-	Boss = 2,
-	Free = 3
-}
-
-enum TankRacingVoiceCondition : int {
-	None = 0,
-	CharacterSelect = 1,
-	MiniGameStart = 2,
-	DashItemGet = 3,
-	EtcItemGet = 4,
-	GunFire = 5,
-	Combo = 6,
-	BossSkill = 7,
-	UpgradeSelect = 8
-}
-
-enum TankRacingChatBubbleType : int {
-	None = 0,
-	Normal = 1,
-	Dynamic = 2
 }
 
 enum TBGProbModifyCondition : int {
@@ -5814,12 +5834,6 @@ enum TBGPortalCondition : int {
 	None = 0,
 	ObjectAllEncounter = 1,
 	Round = 2
-}
-
-enum MiniGameTBGThemaRewardType : int {
-	TreasureReward = 0,
-	EmptyTreasureReward = 1,
-	HiddenThemaTreasureReward = 2
 }
 
 enum TBGVoiceCondition : int {
@@ -6108,7 +6122,8 @@ enum GachaDisplayTag : int {
 	Revival = 9,
 	SelectLimited = 10,
 	NewbieDateLimited = 11,
-	Unowned = 12
+	Unowned = 12,
+	SelectRecruitNotForSale = 13
 }
 
 enum WishListConfig : int {
@@ -6335,6 +6350,11 @@ enum TutorialFailureContentType : int {
 	MultiFloorRaid = 8,
 	InteractiveWorldRaid = 9,
 	TacticalRelay = 10
+}
+
+enum VoiceMailType : int {
+	Normal = 0,
+	Favor = 1
 }
 
 enum CVPrintType : int {
@@ -6723,6 +6743,8 @@ table ConstContentsExcel {
 	CharacterUsageMinAccountSampleCount: int; // index 0x8
 	CharacterUsageRawDataRetentionInDays: int; // index 0x9
 	CharacterUsageAggregateCycleInHours: int; // index 0xA
+	VoiceMailCharacterCoolTimeDay: long; // index 0xB
+	PermanentMiniGameInitials: string; // index 0xC
 }
 
 table ConstEventCommonExcelTable {
@@ -6780,6 +6802,50 @@ table ConstKeyMappingExcel {
 	ControllerDpadMoveCheckRangeY: float; // index 0xF
 	ControllerCursorClickScale: float; // index 0x10
 	ControllerScrollSensitivity: float; // index 0x11
+}
+
+table ConstMiniGameShootingExcelTable {
+	dataList: [ConstMiniGameShootingExcel]; // index 0x1
+}
+
+table ConstMiniGameShootingExcel {
+	NormalStageId: long; // index 0x1
+	NormalSectionCount: int; // index 0x2
+	HardStageId: long; // index 0x3
+	HardSectionCount: int; // index 0x4
+	FreeStageId: long; // index 0x5
+	FreeSectionCount: int; // index 0x6
+	PlayerCharacterId: [long]; // index 0x7
+	HiddenPlayerCharacterId: long; // index 0x8
+	CameraSmoothTime: float; // index 0x9
+	SpawnEffectPath: string; // index 0xA
+	WaitTimeAfterSpawn: float; // index 0xB
+	FreeGearInterval: int; // index 0xC
+}
+
+table ConstMiniGameTankExcelTable {
+	dataList: [ConstMiniGameTankExcel]; // index 0x1
+}
+
+table ConstMiniGameTankExcel {
+	StartCountDuration: long; // index 0x1
+	PerfectStartDuration: long; // index 0x2
+	FirstPatternTriggerOffset: long; // index 0x3
+	RivalSpawnOffset: long; // index 0x4
+	BossSpawnOffset: long; // index 0x5
+	AppearSurplusSpeed: long; // index 0x6
+	DistanceToPlayer: long; // index 0x7
+	DisappearAccelerateValue: long; // index 0x8
+	DisappearDuration: long; // index 0x9
+	AdjustAccelerateTime: long; // index 0xA
+	ObstacleCheckInterval: long; // index 0xB
+	ProjectileSpeed: long; // index 0xC
+	ProjectileExtinctTime: long; // index 0xD
+	BossStageSpeed: long; // index 0xE
+	ComboVoicePlayInterval: int; // index 0xF
+	SpeedEffectThreshold1: long; // index 0x10
+	SpeedEffectThreshold2: long; // index 0x11
+	SpeedVisualMultiplier: float; // index 0x12
 }
 
 table ConstMinigameCCGExcelTable {
@@ -6854,50 +6920,6 @@ table ConstMinigameRoadPuzzleExcel {
 	TileRotationDegree: int; // index 0xC
 	StartStageIndex: int; // index 0xD
 	LoopStageIndex: int; // index 0xE
-}
-
-table ConstMiniGameShootingExcelTable {
-	dataList: [ConstMiniGameShootingExcel]; // index 0x1
-}
-
-table ConstMiniGameShootingExcel {
-	NormalStageId: long; // index 0x1
-	NormalSectionCount: int; // index 0x2
-	HardStageId: long; // index 0x3
-	HardSectionCount: int; // index 0x4
-	FreeStageId: long; // index 0x5
-	FreeSectionCount: int; // index 0x6
-	PlayerCharacterId: [long]; // index 0x7
-	HiddenPlayerCharacterId: long; // index 0x8
-	CameraSmoothTime: float; // index 0x9
-	SpawnEffectPath: string; // index 0xA
-	WaitTimeAfterSpawn: float; // index 0xB
-	FreeGearInterval: int; // index 0xC
-}
-
-table ConstMiniGameTankExcelTable {
-	dataList: [ConstMiniGameTankExcel]; // index 0x1
-}
-
-table ConstMiniGameTankExcel {
-	StartCountDuration: long; // index 0x1
-	PerfectStartDuration: long; // index 0x2
-	FirstPatternTriggerOffset: long; // index 0x3
-	RivalSpawnOffset: long; // index 0x4
-	BossSpawnOffset: long; // index 0x5
-	AppearSurplusSpeed: long; // index 0x6
-	DistanceToPlayer: long; // index 0x7
-	DisappearAccelerateValue: long; // index 0x8
-	DisappearDuration: long; // index 0x9
-	AdjustAccelerateTime: long; // index 0xA
-	ObstacleCheckInterval: long; // index 0xB
-	ProjectileSpeed: long; // index 0xC
-	ProjectileExtinctTime: long; // index 0xD
-	BossStageSpeed: long; // index 0xE
-	ComboVoicePlayInterval: int; // index 0xF
-	SpeedEffectThreshold1: long; // index 0x10
-	SpeedEffectThreshold2: long; // index 0x11
-	SpeedVisualMultiplier: float; // index 0x12
 }
 
 table ConstMinigameTBGExcelTable {
@@ -7485,16 +7507,6 @@ table LimitedStageSeasonExcel {
 	TypeCCount: long; // index 0x6
 }
 
-table LocalizeCCGExcelTable {
-	dataList: [LocalizeCCGExcel]; // index 0x1
-}
-
-table LocalizeCCGExcel {
-	Key: uint; // index 0x1
-	kr: string; // index 0x2
-	Jp: string; // index 0x3
-}
-
 table LocalizeFieldExcelTable {
 	dataList: [LocalizeFieldExcel]; // index 0x1
 }
@@ -7837,5 +7849,15 @@ table WeekDungeonFindGiftRewardExcel {
 	RewardParcelAmount: [long]; // index 0x5
 	RewardParcelProbability: [long]; // index 0x6
 	DropItemModelPrefabPath: [string]; // index 0x7
+}
+
+table LocalizeCCGExcelTable {
+	dataList: [LocalizeCCGExcel]; // index 0x1
+}
+
+table LocalizeCCGExcel {
+	Key: uint; // index 0x1
+	kr: string; // index 0x2
+	Jp: string; // index 0x3
 }
 
